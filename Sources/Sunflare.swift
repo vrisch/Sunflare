@@ -7,3 +7,26 @@
 //
 
 import Foundation
+import UIKit
+
+public protocol ViewControllerPresenter {
+    associatedtype VC: UIViewController
+    
+    weak var viewController: VC? { get }
+    
+    func viewDidLoad()
+    func viewWillAppear()
+    func viewDidDisappear()
+}
+
+extension ViewControllerPresenter {
+    
+    func viewDidLoad() {
+    }
+    
+    func viewWillAppear() {
+    }
+    
+    func viewDidDisappear() {
+    }
+}
