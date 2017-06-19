@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public protocol ViewControllerPresenter {
+public protocol ViewPresenter {
     associatedtype VC: UIViewController
     
     weak var viewController: VC? { get }
@@ -19,7 +19,7 @@ public protocol ViewControllerPresenter {
     func viewDidDisappear()
 }
 
-extension ViewControllerPresenter {
+extension ViewPresenter {
     
     func viewDidLoad() {
     }
