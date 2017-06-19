@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol CollectionViewPresenter: class, ViewPresenter {
+public protocol CollectionViewPresenter: class, ViewPresenter {
     weak var collectionView: UICollectionView? { get set }
     
     func configureLayout(_ layout: UICollectionViewFlowLayout)
@@ -38,10 +38,10 @@ extension CollectionViewPresenter {
     }
 }
 
-class CollectionViewController<P: CollectionViewPresenter>: UICollectionViewController {
+public class CollectionViewController<P: CollectionViewPresenter>: UICollectionViewController {
     let presenter: P
     
-    init(presenter: P) {
+    public init(presenter: P) {
         self.presenter = presenter
         let layout = UICollectionViewFlowLayout()
         
@@ -53,11 +53,11 @@ class CollectionViewController<P: CollectionViewPresenter>: UICollectionViewCont
         super.init(collectionViewLayout: layout)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func loadView() {
+    public override func loadView() {
         super.loadView()
         
         edgesForExtendedLayout = []
@@ -67,38 +67,38 @@ class CollectionViewController<P: CollectionViewPresenter>: UICollectionViewCont
         presenter.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.viewWillAppear()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         presenter.viewDidDisappear()
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return presenter.numberOfItemsInSection(section)
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return presenter.cellForItemAt(indexPath: indexPath)
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         becomeFirstResponder()
         presenter.selectItemAt(indexPath: indexPath)
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+    public override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         presenter.deselectItemAt(indexPath: indexPath)
     }
     
-    override var canBecomeFirstResponder: Bool {
+    public override var canBecomeFirstResponder: Bool {
         return true
     }
     
-    override var keyCommands: [UIKeyCommand]? {
+    public override var keyCommands: [UIKeyCommand]? {
         let commands = presenter.keyCommands()
         guard commands.count > 0 else { return nil }
         return commands.map { let (input, modifierFlags, discoverabilityTitle) = $0;
@@ -106,7 +106,7 @@ class CollectionViewController<P: CollectionViewPresenter>: UICollectionViewCont
         }
     }
     
-    @objc func handleKeyCommand(sender: UIKeyCommand) {
+    @objc private func handleKeyCommand(sender: UIKeyCommand) {
         presenter.handleKeyCommand(input: sender.input!)
     }
 }

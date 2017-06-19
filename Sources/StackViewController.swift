@@ -8,24 +8,24 @@
 
 import UIKit
 
-protocol StackViewPresenter: class, ViewPresenter {
+public protocol StackViewPresenter: class, ViewPresenter {
     weak var stackView: UIStackView? { get set }
 }
 
-class StackViewController<P: StackViewPresenter>: UIViewController {
+public class StackViewController<P: StackViewPresenter>: UIViewController {
     var stackView: UIStackView!
     let presenter: P
     
-    init(presenter: P) {
+    public init(presenter: P) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func loadView() {
+    public override func loadView() {
         super.loadView()
         
         edgesForExtendedLayout = []
@@ -44,12 +44,12 @@ class StackViewController<P: StackViewPresenter>: UIViewController {
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.viewWillAppear()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         presenter.viewDidDisappear()
     }
