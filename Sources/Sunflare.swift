@@ -19,7 +19,7 @@ public protocol ViewPresenter {
     func viewDidDisappear()
 }
 
-extension ViewPresenter {
+public extension ViewPresenter {
     
     func viewDidLoad() {
     }

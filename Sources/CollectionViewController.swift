@@ -23,7 +23,7 @@ public protocol CollectionViewPresenter: class, ViewPresenter {
     func handleKeyCommand(input: String)
 }
 
-extension CollectionViewPresenter {
+public extension CollectionViewPresenter {
     
     func selectItemAt(indexPath: IndexPath) {
     }
