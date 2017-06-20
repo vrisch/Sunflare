@@ -33,15 +33,20 @@ public class StackViewController<P: StackViewPresenter>: UIViewController {
         
         stackView = UIStackView()
         stackView.spacing = 8
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
         
         presenter.stackView = stackView
         presenter.viewDidLoad()
         
-        stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
+            ])
     }
     
     public override func viewWillAppear(_ animated: Bool) {
