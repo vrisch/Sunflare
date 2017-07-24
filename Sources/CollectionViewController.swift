@@ -58,7 +58,9 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
     }
 
     public override var navigationItem: UINavigationItem {
-        return presenter.navigationItem() ?? super.navigationItem
+        let navigationItem = super.navigationItem
+        presenter.configureNavigationItem(navigationItem)
+        return navigationItem
     }
 
     public override func loadView() {

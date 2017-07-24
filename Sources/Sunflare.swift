@@ -18,7 +18,7 @@ public protocol ViewPresenter {
     func viewWillAppear()
     func viewDidDisappear()
 
-    func navigationItem() -> UINavigationItem?
+    func configureNavigationItem(_ navigationItem: UINavigationItem)
 }
 
 public extension ViewPresenter {
@@ -32,7 +32,6 @@ public extension ViewPresenter {
     func viewDidDisappear() {
     }
 
-    func navigationItem() -> UINavigationItem? {
-        return nil
+    func configureNavigationItem(_ navigationItem: UINavigationItem) {
     }
 }
