@@ -24,7 +24,11 @@ public class StackViewController<P: StackViewPresenter>: UIViewController {
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+    public override var navigationItem: UINavigationItem {
+        return presenter.navigationItem() ?? super.navigationItem
+    }
+
     public override func loadView() {
         super.loadView()
         
