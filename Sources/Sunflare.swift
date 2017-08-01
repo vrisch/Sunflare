@@ -17,6 +17,8 @@ public protocol ViewPresenter {
     func viewDidLoad()
     func viewWillAppear()
     func viewDidDisappear()
+
+    func configureNavigationItem(_ navigationItem: UINavigationItem)
 }
 
 public extension ViewPresenter {
@@ -28,5 +30,8 @@ public extension ViewPresenter {
     }
     
     func viewDidDisappear() {
+    }
+
+    func configureNavigationItem(_ navigationItem: UINavigationItem) {
     }
 }
