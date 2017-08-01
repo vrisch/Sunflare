@@ -9,6 +9,30 @@
 import Foundation
 import UIKit
 
+public protocol CollectionViewCellPresenter: class, ViewPresenter {
+    weak var cell: UICollectionViewCell? { get set }
+}
+
+public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionViewCell {
+    public var presenter: P? = nil {
+        didSet {
+            reset()
+            presenter?.cell = self
+            presenter?.viewDidLoad()
+            presenter?.viewWillAppear()
+        }
+    }
+    
+    public override func prepareForReuse() {
+        super.prepareForReuse()
+        presenter = nil
+    }
+    
+    private func reset() {
+        contentView.subviews.forEach { $0.removeFromSuperview() }
+    }
+}
+
 public protocol CollectionViewPresenter: class, ViewPresenter {
     weak var collectionView: UICollectionView? { get set }
     
