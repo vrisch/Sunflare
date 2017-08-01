@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 public protocol CollectionViewCellPresenter: class, ViewPresenter {
+    var indexPath: IndexPath { get set }
     weak var cell: UICollectionViewCell? { get set }
 }
 
