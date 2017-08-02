@@ -23,9 +23,10 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
             presenter?.viewWillAppear()
         }
     }
-    
+
     public override func prepareForReuse() {
         super.prepareForReuse()
+        presenter?.viewDidDisappear()
         presenter = nil
     }
     
