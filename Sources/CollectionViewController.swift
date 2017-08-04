@@ -29,9 +29,13 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
         presenter?.viewDidDisappear()
         presenter = nil
     }
-    
+
     private func reset() {
         contentView.subviews.forEach { $0.removeFromSuperview() }
+    }
+
+    deinit {
+        print("DEINIT CollectionViewCell")
     }
 }
 
