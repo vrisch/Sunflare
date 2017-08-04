@@ -18,7 +18,8 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
     public var presenter: P? = nil {
         didSet {
             oldValue?.viewDidDisappear()
-            reset()
+            contentView.subviews.forEach { $0.removeFromSuperview() }
+
             presenter?.cell = self
             presenter?.viewDidLoad()
             presenter?.viewWillAppear()
@@ -27,16 +28,12 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
 
     public override func prepareForReuse() {
         super.prepareForReuse()
-        presenter?.viewDidDisappear()
-        presenter = nil
-    }
-
-    private func reset() {
-        contentView.subviews.forEach { $0.removeFromSuperview() }
+        presenter = nil // This will make viewDidDisappear to be callled
     }
 
     deinit {
         print("DEINIT CollectionViewCell")
+        presenter = nil // This will make viewDidDisappear to be callled
     }
 }
 
