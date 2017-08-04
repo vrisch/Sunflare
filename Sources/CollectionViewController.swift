@@ -17,7 +17,7 @@ public protocol CollectionViewCellPresenter: class, ViewPresenter {
 public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionViewCell {
     public var presenter: P? = nil {
         didSet {
-            presenter?.viewDidDisappear()
+            oldValue?.viewDidDisappear()
             reset()
             presenter?.cell = self
             presenter?.viewDidLoad()
