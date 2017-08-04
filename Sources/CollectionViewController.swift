@@ -32,8 +32,7 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
     }
 
     deinit {
-        print("DEINIT CollectionViewCell")
-        presenter = nil // This will make viewDidDisappear to be callled
+        presenter?.viewDidDisappear()
     }
 }
 
