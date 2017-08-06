@@ -14,6 +14,15 @@ public protocol StackViewPresenter: class, ViewPresenter {
     func configureStackView(stackView: UIStackView)
 }
 
+public extension StackViewPresenter {
+    
+    func configureStackView(stackView: UIStackView) {
+        stackView.spacing = 8
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+    }
+}
+
 public class StackViewController<P: StackViewPresenter>: UIViewController {
     var stackView: UIStackView!
     let presenter: P
@@ -41,12 +50,8 @@ public class StackViewController<P: StackViewPresenter>: UIViewController {
         
         stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(stackView)
-
-        stackView.spacing = 8
-        stackView.axis = .vertical
-        stackView.distribution = .fill
         presenter.configureStackView(stackView: stackView)
+        view.addSubview(stackView)
         
         presenter.stackView = stackView
         presenter.viewDidLoad()
