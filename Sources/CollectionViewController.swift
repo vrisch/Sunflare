@@ -38,11 +38,11 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
 
 public protocol CollectionViewPresenter: class, ViewPresenter {
     weak var collectionView: UICollectionView? { get set }
-    
-    func configureLayout(_ layout: UICollectionViewFlowLayout)
-    func numberOfItemsInSection(_ section: Int) -> Int
+
+    func configureLayout(layout: UICollectionViewFlowLayout)
+    func numberOfItemsInSection(section: Int) -> Int
     func cellForItemAt(indexPath: IndexPath) -> UICollectionViewCell
-    
+
     func selectItemAt(indexPath: IndexPath)
     func deselectItemAt(indexPath: IndexPath)
     
@@ -75,7 +75,7 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 8
         layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        presenter.configureLayout(layout)
+        presenter.configureLayout(layout: layout)
         
         super.init(collectionViewLayout: layout)
     }
@@ -111,7 +111,7 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
     }
     
     public override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.numberOfItemsInSection(section)
+        return presenter.numberOfItemsInSection(section: section)
     }
     
     public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

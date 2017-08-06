@@ -10,6 +10,8 @@ import UIKit
 
 public protocol StackViewPresenter: class, ViewPresenter {
     weak var stackView: UIStackView? { get set }
+
+    func configureStackView(stackView: UIStackView)
 }
 
 public class StackViewController<P: StackViewPresenter>: UIViewController {
@@ -38,20 +40,22 @@ public class StackViewController<P: StackViewPresenter>: UIViewController {
         view.backgroundColor = .white
         
         stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(stackView)
+
         stackView.spacing = 8
         stackView.axis = .vertical
         stackView.distribution = .fill
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(stackView)
+        presenter.configureStackView(stackView: stackView)
         
         presenter.stackView = stackView
         presenter.viewDidLoad()
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
+            stackView.topAnchor.constraint(equalTo: view.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
             ])
     }
     
