@@ -10,10 +10,6 @@ import Foundation
 import UIKit
 
 public protocol ViewPresenter {
-    associatedtype VC: UIViewController
-    
-    weak var viewController: VC? { get }
-    
     func viewDidLoad()
     func viewWillAppear()
     func viewDidDisappear()

@@ -6,38 +6,11 @@
 //  Copyright © 2017 Sunflare. All rights reserved.
 //
 
-import Foundation
 import UIKit
-
-public protocol CollectionViewCellPresenter: class, ViewPresenter {
-    var indexPath: IndexPath { get set }
-    weak var cell: UICollectionViewCell? { get set }
-}
-
-public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionViewCell {
-    public var presenter: P? = nil {
-        didSet {
-            oldValue?.viewDidDisappear()
-            contentView.subviews.forEach { $0.removeFromSuperview() }
-
-            presenter?.cell = self
-            presenter?.viewDidLoad()
-            presenter?.viewWillAppear()
-        }
-    }
-
-    public override func prepareForReuse() {
-        super.prepareForReuse()
-        presenter = nil // This will make viewDidDisappear to be callled
-    }
-
-    deinit {
-        presenter?.viewDidDisappear()
-    }
-}
 
 public protocol CollectionViewPresenter: class, ViewPresenter {
     weak var collectionView: UICollectionView? { get set }
+    weak var collectionViewController: CollectionViewController<Self>? { get set }
 
     func configureLayout(layout: UICollectionViewFlowLayout)
     func numberOfItemsInSection(section: Int) -> Int
@@ -45,7 +18,7 @@ public protocol CollectionViewPresenter: class, ViewPresenter {
 
     func selectItemAt(indexPath: IndexPath)
     func deselectItemAt(indexPath: IndexPath)
-    
+
     func keyCommands() -> [(input: String, modifierFlags: UIKeyModifierFlags, discoverabilityTitle: String)]
     func handleKeyCommand(input: String)
 }
@@ -95,8 +68,9 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
         
         edgesForExtendedLayout = []
         collectionView?.backgroundColor = .white
-        
+
         presenter.collectionView = collectionView
+        presenter.collectionViewController = self
         presenter.viewDidLoad()
     }
     

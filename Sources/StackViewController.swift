@@ -10,6 +10,7 @@ import UIKit
 
 public protocol StackViewPresenter: class, ViewPresenter {
     weak var stackView: UIStackView? { get set }
+    weak var stackViewController: StackViewController<Self>? { get set }
 
     func configureStackView(stackView: UIStackView)
 }
@@ -17,9 +18,6 @@ public protocol StackViewPresenter: class, ViewPresenter {
 public extension StackViewPresenter {
     
     func configureStackView(stackView: UIStackView) {
-        stackView.spacing = 8
-        stackView.axis = .vertical
-        stackView.distribution = .fill
     }
 }
 
@@ -50,10 +48,15 @@ public class StackViewController<P: StackViewPresenter>: UIViewController {
         
         stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        presenter.configureStackView(stackView: stackView)
         view.addSubview(stackView)
-        
+
+        stackView.spacing = 0
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        presenter.configureStackView(stackView: stackView)
+
         presenter.stackView = stackView
+        presenter.stackViewController = self
         presenter.viewDidLoad()
         
         NSLayoutConstraint.activate([
