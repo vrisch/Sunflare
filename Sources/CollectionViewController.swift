@@ -12,8 +12,8 @@ public protocol CollectionViewPresenter: class, ViewPresenter {
     weak var collectionView: UICollectionView? { get set }
     weak var collectionViewController: CollectionViewController<Self>? { get set }
 
-    func configureLayout(layout: UICollectionViewFlowLayout)
-    func numberOfItemsInSection(section: Int) -> Int
+    func configureLayout(_ layout: UICollectionViewFlowLayout)
+    func numberOfItemsInSection(_ section: Int) -> Int
     func cellForItemAt(indexPath: IndexPath) -> UICollectionViewCell
 
     func selectItemAt(indexPath: IndexPath)
@@ -43,14 +43,16 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
     
     public init(presenter: P) {
         self.presenter = presenter
+
         let layout = UICollectionViewFlowLayout()
-        
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 8
         layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        presenter.configureLayout(layout: layout)
+        presenter.configureLayout(layout)
         
         super.init(collectionViewLayout: layout)
+
+        presenter.collectionViewController = self
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -70,7 +72,6 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
         collectionView?.backgroundColor = .white
 
         presenter.collectionView = collectionView
-        presenter.collectionViewController = self
         presenter.viewDidLoad()
     }
     
@@ -85,7 +86,7 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
     }
     
     public override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.numberOfItemsInSection(section: section)
+        return presenter.numberOfItemsInSection(section)
     }
     
     public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

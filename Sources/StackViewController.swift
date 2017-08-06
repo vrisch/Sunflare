@@ -12,12 +12,12 @@ public protocol StackViewPresenter: class, ViewPresenter {
     weak var stackView: UIStackView? { get set }
     weak var stackViewController: StackViewController<Self>? { get set }
 
-    func configureStackView(stackView: UIStackView)
+    func configureStackView(_ stackView: UIStackView, traitCollection: UITraitCollection)
 }
 
 public extension StackViewPresenter {
     
-    func configureStackView(stackView: UIStackView) {
+    func configureStackView(_ stackView: UIStackView, traitCollection: UITraitCollection) {
     }
 }
 
@@ -28,6 +28,7 @@ public class StackViewController<P: StackViewPresenter>: UIViewController {
     public init(presenter: P) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
+        presenter.stackViewController = self
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -53,10 +54,9 @@ public class StackViewController<P: StackViewPresenter>: UIViewController {
         stackView.spacing = 0
         stackView.axis = .vertical
         stackView.distribution = .fill
-        presenter.configureStackView(stackView: stackView)
+        presenter.configureStackView(stackView, traitCollection: traitCollection)
 
         presenter.stackView = stackView
-        presenter.stackViewController = self
         presenter.viewDidLoad()
         
         NSLayoutConstraint.activate([
