@@ -76,5 +76,9 @@ public class StackViewController<P: StackViewPresenter>: UIViewController {
         super.viewDidDisappear(animated)
         presenter.viewDidDisappear()
     }
+
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        presenter.configureStackView(stackView, traitCollection: traitCollection)
+    }
 }
 
