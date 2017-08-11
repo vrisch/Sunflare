@@ -10,22 +10,22 @@ import Foundation
 import UIKit
 
 public protocol ViewPresenter {
-    func viewDidLoad()
-    func viewWillAppear()
-    func viewDidDisappear()
+    func viewDidLoad() throws
+    func viewWillAppear() throws
+    func viewDidDisappear() throws
 
     func configureNavigationItem(_ navigationItem: UINavigationItem)
 }
 
 public extension ViewPresenter {
     
-    func viewDidLoad() {
+    func viewDidLoad() throws {
     }
     
-    func viewWillAppear() {
+    func viewWillAppear() throws {
     }
     
-    func viewDidDisappear() {
+    func viewDidDisappear() throws {
     }
 
     func configureNavigationItem(_ navigationItem: UINavigationItem) {

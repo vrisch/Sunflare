@@ -16,25 +16,25 @@ public protocol CollectionViewPresenter: class, ViewPresenter {
     func numberOfItemsInSection(_ section: Int) -> Int
     func cellForItemAt(indexPath: IndexPath) -> UICollectionViewCell
 
-    func selectItemAt(indexPath: IndexPath)
-    func deselectItemAt(indexPath: IndexPath)
+    func selectItemAt(indexPath: IndexPath) throws
+    func deselectItemAt(indexPath: IndexPath) throws
 
     func keyCommands() -> [(input: String, modifierFlags: UIKeyModifierFlags, discoverabilityTitle: String)]
-    func handleKeyCommand(input: String)
+    func handleKeyCommand(input: String) throws
 }
 
 public extension CollectionViewPresenter {
     
-    func selectItemAt(indexPath: IndexPath) {
+    func selectItemAt(indexPath: IndexPath) throws {
     }
     
-    func deselectItemAt(indexPath: IndexPath) {
+    func deselectItemAt(indexPath: IndexPath) throws {
     }
     
     func keyCommands() -> [(input: String, modifierFlags: UIKeyModifierFlags, discoverabilityTitle: String)] {
         return []
     }
-    func handleKeyCommand(input: String) {
+    func handleKeyCommand(input: String) throws {
     }
 }
 
@@ -72,17 +72,17 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
         collectionView?.backgroundColor = .white
 
         presenter.collectionView = collectionView
-        presenter.viewDidLoad()
+        try! presenter.viewDidLoad()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.viewWillAppear()
+        try! presenter.viewWillAppear()
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        presenter.viewDidDisappear()
+        try! presenter.viewDidDisappear()
     }
     
     public override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -95,11 +95,11 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
     
     public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         becomeFirstResponder()
-        presenter.selectItemAt(indexPath: indexPath)
+        try! presenter.selectItemAt(indexPath: indexPath)
     }
     
     public override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        presenter.deselectItemAt(indexPath: indexPath)
+        try! presenter.deselectItemAt(indexPath: indexPath)
     }
     
     public override var canBecomeFirstResponder: Bool {
@@ -115,6 +115,6 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
     }
     
     @objc private func handleKeyCommand(sender: UIKeyCommand) {
-        presenter.handleKeyCommand(input: sender.input!)
+        try! presenter.handleKeyCommand(input: sender.input!)
     }
 }

@@ -17,12 +17,12 @@ public protocol CollectionViewCellPresenter: class, ViewPresenter {
 public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionViewCell {
     public var presenter: P? = nil {
         didSet {
-            oldValue?.viewDidDisappear()
+            try! oldValue?.viewDidDisappear()
             contentView.subviews.forEach { $0.removeFromSuperview() }
             
             presenter?.cell = self
-            presenter?.viewDidLoad()
-            presenter?.viewWillAppear()
+            try! presenter?.viewDidLoad()
+            try! presenter?.viewWillAppear()
         }
     }
     
@@ -32,6 +32,6 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
     }
     
     deinit {
-        presenter?.viewDidDisappear()
+        try! presenter?.viewDidDisappear()
     }
 }

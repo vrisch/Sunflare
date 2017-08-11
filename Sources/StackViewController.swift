@@ -57,7 +57,7 @@ public class StackViewController<P: StackViewPresenter>: UIViewController {
         presenter.configureStackView(stackView, traitCollection: traitCollection)
 
         presenter.stackView = stackView
-        presenter.viewDidLoad()
+        try! presenter.viewDidLoad()
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -69,12 +69,12 @@ public class StackViewController<P: StackViewPresenter>: UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.viewWillAppear()
+        try! presenter.viewWillAppear()
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        presenter.viewDidDisappear()
+        try! presenter.viewDidDisappear()
     }
 
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
