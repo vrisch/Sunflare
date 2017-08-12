@@ -13,7 +13,9 @@ public protocol ViewPresenter {
     func viewDidLoad() throws
     func viewWillAppear() throws
     func viewDidDisappear() throws
-
+    
+    func viewDidFail(error: Error)
+    
     func configureNavigationItem(_ navigationItem: UINavigationItem)
 }
 
@@ -26,6 +28,10 @@ public extension ViewPresenter {
     }
     
     func viewDidDisappear() throws {
+    }
+    
+    func viewDidFail(error: Error) {
+        print("viewDidFail: \(error)")
     }
 
     func configureNavigationItem(_ navigationItem: UINavigationItem) {

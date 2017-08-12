@@ -11,14 +11,14 @@ import UIKit
 public protocol CollectionViewPresenter: class, ViewPresenter {
     weak var collectionView: UICollectionView? { get set }
     weak var collectionViewController: CollectionViewController<Self>? { get set }
-
+    
     func configureLayout(_ layout: UICollectionViewFlowLayout)
     func numberOfItemsInSection(_ section: Int) -> Int
     func cellForItemAt(indexPath: IndexPath) -> UICollectionViewCell
-
+    
     func selectItemAt(indexPath: IndexPath) throws
     func deselectItemAt(indexPath: IndexPath) throws
-
+    
     func keyCommands() -> [(input: String, modifierFlags: UIKeyModifierFlags, discoverabilityTitle: String)]
     func handleKeyCommand(input: String) throws
 }
@@ -43,7 +43,7 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
     
     public init(presenter: P) {
         self.presenter = presenter
-
+        
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 8
@@ -51,38 +51,51 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
         presenter.configureLayout(layout)
         
         super.init(collectionViewLayout: layout)
-
+        
         presenter.collectionViewController = self
     }
     
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     public override var navigationItem: UINavigationItem {
         let navigationItem = super.navigationItem
         presenter.configureNavigationItem(navigationItem)
         return navigationItem
     }
-
+    
     public override func loadView() {
         super.loadView()
         
         edgesForExtendedLayout = []
         collectionView?.backgroundColor = .white
-
+        
         presenter.collectionView = collectionView
-        try! presenter.viewDidLoad()
+        do {
+            try presenter.viewDidLoad()
+        } catch let error {
+            presenter.viewDidFail(error: error)
+        }
     }
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        try! presenter.viewWillAppear()
+        do {
+            try presenter.viewWillAppear()
+        } catch let error {
+            presenter.viewDidFail(error: error)
+        }
+        
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        try! presenter.viewDidDisappear()
+        do {
+            try presenter.viewDidDisappear()
+        } catch let error {
+            presenter.viewDidFail(error: error)
+        }
     }
     
     public override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -95,11 +108,19 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
     
     public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         becomeFirstResponder()
-        try! presenter.selectItemAt(indexPath: indexPath)
+        do {
+            try presenter.selectItemAt(indexPath: indexPath)
+        } catch let error {
+            presenter.viewDidFail(error: error)
+        }
     }
     
     public override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        try! presenter.deselectItemAt(indexPath: indexPath)
+        do {
+            try presenter.deselectItemAt(indexPath: indexPath)
+        } catch let error {
+            presenter.viewDidFail(error: error)
+        }
     }
     
     public override var canBecomeFirstResponder: Bool {
@@ -115,6 +136,10 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
     }
     
     @objc private func handleKeyCommand(sender: UIKeyCommand) {
-        try! presenter.handleKeyCommand(input: sender.input!)
+        do {
+            try presenter.handleKeyCommand(input: sender.input!)
+        } catch let error {
+            presenter.viewDidFail(error: error)
+        }
     }
 }

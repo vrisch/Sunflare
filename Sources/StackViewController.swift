@@ -11,7 +11,7 @@ import UIKit
 public protocol StackViewPresenter: class, ViewPresenter {
     weak var stackView: UIStackView? { get set }
     weak var stackViewController: StackViewController<Self>? { get set }
-
+    
     func configureStackView(_ stackView: UIStackView, traitCollection: UITraitCollection)
 }
 
@@ -34,13 +34,13 @@ public class StackViewController<P: StackViewPresenter>: UIViewController {
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     public override var navigationItem: UINavigationItem {
         let navigationItem = super.navigationItem
         presenter.configureNavigationItem(navigationItem)
         return navigationItem
     }
-
+    
     public override func loadView() {
         super.loadView()
         
@@ -50,14 +50,18 @@ public class StackViewController<P: StackViewPresenter>: UIViewController {
         stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
-
+        
         stackView.spacing = 0
         stackView.axis = .vertical
         stackView.distribution = .fill
         presenter.configureStackView(stackView, traitCollection: traitCollection)
-
+        
         presenter.stackView = stackView
-        try! presenter.viewDidLoad()
+        do {
+            try presenter.viewDidLoad()
+        } catch let error {
+            presenter.viewDidFail(error: error)
+        }
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -69,14 +73,22 @@ public class StackViewController<P: StackViewPresenter>: UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        try! presenter.viewWillAppear()
+        do {
+            try presenter.viewWillAppear()
+        } catch let error {
+            presenter.viewDidFail(error: error)
+        }
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        try! presenter.viewDidDisappear()
+        do {
+            try presenter.viewDidDisappear()
+        } catch let error {
+            presenter.viewDidFail(error: error)
+        }
     }
-
+    
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         presenter.configureStackView(stackView, traitCollection: traitCollection)
     }
