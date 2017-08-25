@@ -24,9 +24,11 @@ public extension StackViewPresenter {
 public class StackViewController<P: StackViewPresenter>: UIViewController {
     var stackView: UIStackView!
     let presenter: P
-    
-    public init(presenter: P) {
+    let statusBarStyle: UIStatusBarStyle
+
+    public init(presenter: P, statusBarStyle: UIStatusBarStyle = .default) {
         self.presenter = presenter
+        self.statusBarStyle = statusBarStyle
         super.init(nibName: nil, bundle: nil)
         presenter.stackViewController = self
     }
@@ -91,6 +93,10 @@ public class StackViewController<P: StackViewPresenter>: UIViewController {
     
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         presenter.configureStackView(stackView, traitCollection: traitCollection)
+    }
+    
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return statusBarStyle
     }
 }
 
