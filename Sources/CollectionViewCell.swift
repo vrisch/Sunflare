@@ -30,11 +30,6 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
         }
     }
     
-    public override func prepareForReuse() {
-        super.prepareForReuse()
-        presenter = nil // This will make viewDidDisappear to be callled
-    }
-    
     deinit {
         do {
             try presenter?.viewDidDisappear()
