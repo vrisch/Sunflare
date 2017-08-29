@@ -9,18 +9,23 @@
 import UIKit
 
 public protocol CollectionViewCellPresenter: class, ViewPresenter {
-    var indexPath: IndexPath { get set }
     weak var cell: UICollectionViewCell? { get set }
     weak var collectionViewController: UICollectionViewController? { get set }
 }
 
 public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionViewCell {
     public var presenter: P? = nil {
+        willSet {
+            do {
+                try presenter?.viewDidDisappear()
+                presenter?.cell = nil
+                contentView.subviews.forEach { $0.removeFromSuperview() }
+            } catch let error {
+                presenter?.viewDidFail(error: error)
+            }
+        }
         didSet {
             do {
-                try oldValue?.viewDidDisappear()
-                contentView.subviews.forEach { $0.removeFromSuperview() }
-                
                 presenter?.cell = self
                 try presenter?.viewDidLoad()
                 try presenter?.viewWillAppear()
@@ -33,6 +38,7 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
     deinit {
         do {
             try presenter?.viewDidDisappear()
+            presenter?.cell = nil
         } catch let error {
             presenter?.viewDidFail(error: error)
         }
