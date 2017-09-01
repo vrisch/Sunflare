@@ -18,6 +18,7 @@
 		8933C7901EB5B82D000D00A4 /* SunflareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* SunflareTests.swift */; };
 		DD7502881C68FEDE006590AF /* Sunflare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* Sunflare.framework */; };
 		DD7502921C690C7A006590AF /* Sunflare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D9F01BEFFFBE002C0205 /* Sunflare.framework */; };
+		F762821A1F598A0500C4245B /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76282191F598A0500C4245B /* StackView.swift */; };
 		F78183501EF5754800B04C5E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781834F1EF5754800B04C5E /* CollectionViewController.swift */; };
 		F78183521EF7886500B04C5E /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78183511EF7886500B04C5E /* StackViewController.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		AD2FAA281CD0B6E100659CF4 /* SunflareTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SunflareTests.plist; sourceTree = "<group>"; };
 		DD75027A1C68FCFC006590AF /* Sunflare-macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sunflare-macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD75028D1C690C7A006590AF /* Sunflare-tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sunflare-tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F76282191F598A0500C4245B /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
 		F781834F1EF5754800B04C5E /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		F78183511EF7886500B04C5E /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +160,7 @@
 				8933C7841EB5B820000D00A4 /* Sunflare.swift */,
 				30E49DA21F3708F1005A8A1E /* CollectionViewCell.swift */,
 				F781834F1EF5754800B04C5E /* CollectionViewController.swift */,
+				F76282191F598A0500C4245B /* StackView.swift */,
 				F78183511EF7886500B04C5E /* StackViewController.swift */,
 			);
 			path = Sources;
@@ -469,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F78183521EF7886500B04C5E /* StackViewController.swift in Sources */,
+				F762821A1F598A0500C4245B /* StackView.swift in Sources */,
 				F78183501EF5754800B04C5E /* CollectionViewController.swift in Sources */,
 				30E49DA31F3708F1005A8A1E /* CollectionViewCell.swift in Sources */,
 				8933C7851EB5B820000D00A4 /* Sunflare.swift in Sources */,

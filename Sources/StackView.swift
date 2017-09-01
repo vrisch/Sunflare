@@ -1,32 +1,27 @@
 //
-//  CollectionViewCell.swift
+//  ReusableView.swift
 //  Sunflare-iOS
 //
-//  Created by Vrisch on 2017-08-06.
+//  Created by Magnus Nilsson on 2017-09-01.
 //  Copyright © 2017 Sunflare. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-public protocol CollectionViewCellPresenter: class, ViewPresenter {
-    weak var cell: UICollectionViewCell? { get set }
-    weak var collectionViewController: UICollectionViewController? { get set }
-}
-
-public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionViewCell {
+public class StackView<P: StackViewPresenter>: UIStackView {
     public var presenter: P? = nil {
         willSet {
             do {
                 try presenter?.viewDidDisappear()
-                presenter?.cell = nil
-                contentView.subviews.forEach { $0.removeFromSuperview() }
+                subviews.forEach { $0.removeFromSuperview() }
             } catch let error {
                 presenter?.viewDidFail(error: error)
             }
         }
         didSet {
             do {
-                presenter?.cell = self
+                presenter?.stackViewController = nil
                 try presenter?.viewDidLoad()
                 try presenter?.viewWillAppear()
             } catch let error {
@@ -34,11 +29,10 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
             }
         }
     }
-    
+
     deinit {
         do {
             try presenter?.viewDidDisappear()
-            presenter?.cell = nil
         } catch let error {
             presenter?.viewDidFail(error: error)
         }

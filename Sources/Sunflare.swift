@@ -37,3 +37,4 @@ public extension ViewPresenter {
     func configureNavigationItem(_ navigationItem: UINavigationItem) {
     }
 }
+
