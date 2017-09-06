@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 public protocol ViewPresenter {
     func viewDidLoad() throws
@@ -15,8 +14,6 @@ public protocol ViewPresenter {
     func viewDidDisappear() throws
     
     func viewDidFail(error: Error)
-    
-    func configureNavigationItem(_ navigationItem: UINavigationItem)
 }
 
 public extension ViewPresenter {
@@ -32,9 +29,6 @@ public extension ViewPresenter {
     
     func viewDidFail(error: Error) {
         print("viewDidFail: \(error)")
-    }
-
-    func configureNavigationItem(_ navigationItem: UINavigationItem) {
     }
 }
 

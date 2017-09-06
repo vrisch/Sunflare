@@ -18,6 +18,8 @@
 		F762821A1F598A0500C4245B /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76282191F598A0500C4245B /* StackView.swift */; };
 		F78183501EF5754800B04C5E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781834F1EF5754800B04C5E /* CollectionViewController.swift */; };
 		F78183521EF7886500B04C5E /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78183511EF7886500B04C5E /* StackViewController.swift */; };
+		F7F721641F5FC80300EA2877 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Sunflare.swift */; };
+		F7F721651F5FC97D00EA2877 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78183511EF7886500B04C5E /* StackViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -502,6 +504,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7F721641F5FC80300EA2877 /* Sunflare.swift in Sources */,
+				F7F721651F5FC97D00EA2877 /* StackViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -862,6 +866,7 @@
 		DD7502831C68FCFC006590AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Configs/SunflareTests.plist;
@@ -877,6 +882,7 @@
 		DD7502841C68FCFC006590AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Configs/SunflareTests.plist;

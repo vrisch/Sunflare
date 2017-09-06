@@ -59,12 +59,6 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
         fatalError("init(coder:) has not been implemented")
     }
     
-    public override var navigationItem: UINavigationItem {
-        let navigationItem = super.navigationItem
-        presenter.configureNavigationItem(navigationItem)
-        return navigationItem
-    }
-    
     public override func loadView() {
         super.loadView()
         
