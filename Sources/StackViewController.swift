@@ -37,7 +37,7 @@
         }
 
         public override func loadView() {
-            //            super.loadView()
+            view = NSView(frame: NSRect(x: 50, y: 50, width: 480, height: 320))
         }
         
         public override func viewDidLoad() {
