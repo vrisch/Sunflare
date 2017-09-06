@@ -37,7 +37,7 @@
         }
 
         public override func loadView() {
-            super.loadView()
+//            super.loadView()
 
             stackView = NSStackView()
             stackView.translatesAutoresizingMaskIntoConstraints = false
