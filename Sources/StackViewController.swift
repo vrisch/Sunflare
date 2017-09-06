@@ -37,8 +37,10 @@
         }
 
         public override func loadView() {
-//            super.loadView()
-
+            //            super.loadView()
+        }
+        
+        public override func viewDidLoad() {
             stackView = NSStackView()
             stackView.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(stackView)
