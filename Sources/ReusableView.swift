@@ -1,27 +1,37 @@
 //
 //  ReusableView.swift
-//  Sunflare-iOS
+//  Sunflare
 //
 //  Created by Magnus Nilsson on 2017-09-01.
 //  Copyright © 2017 Sunflare. All rights reserved.
 //
 
-import Foundation
-import UIKit
+#if os(OSX)
+    import Cocoa
+    public typealias View = NSView
+#else
+    import UIKit
+    public typealias View = UIView
+#endif
 
-public class StackView<P: StackViewPresenter>: UIStackView {
+public protocol ReusableViewPresenter: class, ViewPresenter {
+    weak var reusableView: ReusableView<Self>? { get set }
+}
+
+public class ReusableView<P: ReusableViewPresenter>: View {
     public var presenter: P? = nil {
         willSet {
             do {
                 try presenter?.viewDidDisappear()
                 subviews.forEach { $0.removeFromSuperview() }
+                presenter?.reusableView = nil
             } catch let error {
                 presenter?.viewDidFail(error: error)
             }
         }
         didSet {
             do {
-                presenter?.stackViewController = nil
+                presenter?.reusableView = self
                 try presenter?.viewDidLoad()
                 try presenter?.viewWillAppear()
             } catch let error {
