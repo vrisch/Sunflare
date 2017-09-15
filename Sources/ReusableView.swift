@@ -62,12 +62,12 @@ public class ReusableView<P: ReusableViewPresenter>: View {
     
     #if os(OSX)
     public override func mouseDown(with event: NSEvent) {
-        let point = convert(event.locationInWindow, to: self)
+        let point = convert(event.locationInWindow, from: nil)
         presenter?.mouseDown(point: point)
     }
     
     public override func mouseUp(with event: NSEvent) {
-        let point = convert(event.locationInWindow, to: self)
+        let point = convert(event.locationInWindow, from: nil)
         presenter?.mouseUp(point: point)
     }
     #endif
