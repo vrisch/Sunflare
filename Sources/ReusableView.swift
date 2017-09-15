@@ -17,19 +17,19 @@
 public protocol ReusableViewPresenter: class, ViewPresenter {
     weak var reusableView: ReusableView<Self>? { get set }
     
-    func mouseDown(point: CGPoint)
-    func mouseUp(point: CGPoint)
+    func mouseDown(point: CGPoint) throws
+    func mouseUp(point: CGPoint) throws
 }
-
+/*
 public extension ReusableViewPresenter {
 
-    public func mouseDown(point: CGPoint) {
+    func mouseDown(point: CGPoint) throws {
     }
 
-    public func mouseUp(point: CGPoint) {
+    func mouseUp(point: CGPoint) throws {
     }
 }
-
+*/
 public class ReusableView<P: ReusableViewPresenter>: View {
     public var presenter: P? = nil {
         willSet {
@@ -63,12 +63,20 @@ public class ReusableView<P: ReusableViewPresenter>: View {
     #if os(OSX)
     public override func mouseDown(with event: NSEvent) {
         let point = convert(event.locationInWindow, from: nil)
-        presenter?.mouseDown(point: point)
+        do {
+            try presenter?.mouseDown(point: point)
+        } catch let error {
+            presenter?.viewDidFail(error: error)
+        }
     }
     
     public override func mouseUp(with event: NSEvent) {
         let point = convert(event.locationInWindow, from: nil)
-        presenter?.mouseUp(point: point)
+        do {
+            try presenter?.mouseUp(point: point)
+        } catch let error {
+            presenter?.viewDidFail(error: error)
+        }
     }
     #endif
 }
