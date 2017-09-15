@@ -17,19 +17,21 @@
 public protocol ReusableViewPresenter: class, ViewPresenter {
     weak var reusableView: ReusableView<Self>? { get set }
     
-    func mouseDown(point: CGPoint) throws
-    func mouseUp(point: CGPoint) throws
+    func mouseDown(point: CGPoint) throws -> Bool
+    func mouseUp(point: CGPoint) throws -> Bool
 }
-/*
+
 public extension ReusableViewPresenter {
-
-    func mouseDown(point: CGPoint) throws {
+    
+    func mouseDown(point: CGPoint) throws -> Bool {
+        return false
     }
-
-    func mouseUp(point: CGPoint) throws {
+    
+    func mouseUp(point: CGPoint) throws -> Bool {
+        return false
     }
 }
-*/
+
 public class ReusableView<P: ReusableViewPresenter>: View {
     public var presenter: P? = nil {
         willSet {
@@ -62,20 +64,24 @@ public class ReusableView<P: ReusableViewPresenter>: View {
     
     #if os(OSX)
     public override func mouseDown(with event: NSEvent) {
-        let point = convert(event.locationInWindow, from: nil)
-        do {
-            try presenter?.mouseDown(point: point)
-        } catch let error {
-            presenter?.viewDidFail(error: error)
+        if let presenter = presenter {
+            let point = convert(event.locationInWindow, from: nil)
+            do {
+                guard try presenter.mouseDown(point: point) else { super.mouseDown(with: event) }
+            } catch let error {
+                presenter.viewDidFail(error: error)
+            }
         }
     }
     
     public override func mouseUp(with event: NSEvent) {
-        let point = convert(event.locationInWindow, from: nil)
-        do {
-            try presenter?.mouseUp(point: point)
-        } catch let error {
-            presenter?.viewDidFail(error: error)
+        if let presenter = presenter {
+            let point = convert(event.locationInWindow, from: nil)
+            do {
+                guard try presenter.mouseUp(point: point) else { super.mouseUp(with: event) }
+            } catch let error {
+                presenter.viewDidFail(error: error)
+            }
         }
     }
     #endif
