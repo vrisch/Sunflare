@@ -64,24 +64,24 @@ public class ReusableView<P: ReusableViewPresenter>: View {
     
     #if os(OSX)
     public override func mouseDown(with event: NSEvent) {
-        if let presenter = presenter {
-            let point = convert(event.locationInWindow, from: nil)
-            do {
-                guard try presenter.mouseDown(point: point) else { super.mouseDown(with: event) }
-            } catch let error {
-                presenter.viewDidFail(error: error)
+        let point = convert(event.locationInWindow, from: nil)
+        do {
+            if try presenter?.mouseDown(point: point) == false {
+                super.mouseDown(with: event)
             }
+        } catch let error {
+            presenter?.viewDidFail(error: error)
         }
     }
     
     public override func mouseUp(with event: NSEvent) {
-        if let presenter = presenter {
-            let point = convert(event.locationInWindow, from: nil)
-            do {
-                guard try presenter.mouseUp(point: point) else { super.mouseUp(with: event) }
-            } catch let error {
-                presenter.viewDidFail(error: error)
+        let point = convert(event.locationInWindow, from: nil)
+        do {
+            if try presenter?.mouseUp(point: point) == false {
+                super.mouseUp(with: event)
             }
+        } catch let error {
+            presenter?.viewDidFail(error: error)
         }
     }
     #endif
