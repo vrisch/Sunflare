@@ -138,12 +138,21 @@
                 presenter.viewDidFail(error: error)
             }
             
-            NSLayoutConstraint.activate([
-                stackView.topAnchor.constraint(equalTo: view.topAnchor),
-                stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-                stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-                ])
+            if #available(iOSApplicationExtension 11.0, *) {
+                NSLayoutConstraint.activate([
+                    stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                    stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+                    stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+                    stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+                    ])
+            } else {
+                NSLayoutConstraint.activate([
+                    stackView.topAnchor.constraint(equalTo: view.topAnchor),
+                    stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                    stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                    stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+                    ])
+            }
         }
         
         public override func viewWillAppear(_ animated: Bool) {
