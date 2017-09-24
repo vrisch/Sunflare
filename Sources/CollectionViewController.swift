@@ -48,6 +48,9 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 8
         layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        if #available(iOSApplicationExtension 11.0, *) {
+            layout.sectionInsetReference = .fromSafeArea
+        }
         presenter.configureLayout(layout)
         
         super.init(collectionViewLayout: layout)
