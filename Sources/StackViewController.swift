@@ -8,7 +8,7 @@
 
 #if os(OSX)
     import Cocoa
-
+    
     public protocol StackViewPresenter: class, ViewPresenter {
         weak var stackView: NSStackView? { get set }
         weak var stackViewController: StackViewController<Self>? { get set }
@@ -21,7 +21,7 @@
         func configureStackView(_ stackView: NSStackView) {
         }
     }
-
+    
     public class StackViewController<P: StackViewPresenter>: NSViewController {
         var stackView: NSStackView!
         let presenter: P
@@ -35,7 +35,7 @@
         public required init?(coder aDecoder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
-
+        
         public override func loadView() {
             view = NSView(frame: NSRect(x: 50, y: 50, width: 480, height: 320))
         }
@@ -44,7 +44,7 @@
             stackView = NSStackView()
             stackView.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(stackView)
-
+            
             stackView.spacing = 0
             stackView.orientation = .vertical
             stackView.distribution = .fill
@@ -56,7 +56,7 @@
             } catch let error {
                 presenter.viewDidFail(error: error)
             }
-
+            
             NSLayoutConstraint.activate([
                 stackView.topAnchor.constraint(equalTo: view.topAnchor),
                 stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -64,7 +64,7 @@
                 stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
                 ])
         }
-      
+        
         public override func viewWillAppear() {
             super.viewWillAppear()
             do {
@@ -73,7 +73,7 @@
                 presenter.viewDidFail(error: error)
             }
         }
-
+        
         public override func viewDidDisappear() {
             super.viewDidDisappear()
             do {
@@ -83,10 +83,10 @@
             }
         }
     }
-
+    
 #else
     import UIKit
-
+    
     public protocol StackViewPresenter: class, ViewPresenter {
         weak var stackView: UIStackView? { get set }
         weak var stackViewController: StackViewController<Self>? { get set }
@@ -103,11 +103,9 @@
     public class StackViewController<P: StackViewPresenter>: UIViewController {
         var stackView: UIStackView!
         let presenter: P
-        let statusBarStyle: UIStatusBarStyle
         
-        public init(presenter: P, statusBarStyle: UIStatusBarStyle = .default) {
+        public init(presenter: P) {
             self.presenter = presenter
-            self.statusBarStyle = statusBarStyle
             super.init(nibName: nil, bundle: nil)
             presenter.stackViewController = self
         }
@@ -138,14 +136,7 @@
                 presenter.viewDidFail(error: error)
             }
             
-            if #available(iOSApplicationExtension 11.0, *) {
-                NSLayoutConstraint.activate([
-                    stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-                    stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-                    stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-                    stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-                    ])
-            } else {
+            func normalContraints() {
                 NSLayoutConstraint.activate([
                     stackView.topAnchor.constraint(equalTo: view.topAnchor),
                     stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -153,6 +144,21 @@
                     stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
                     ])
             }
+            
+            #if os(iOS)
+                if #available(iOSApplicationExtension 11.0, *) {
+                    NSLayoutConstraint.activate([
+                        stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                        stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+                        stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+                        stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+                        ])
+                } else {
+                    normalContraints()
+                }
+            #else
+                normalContraints()
+            #endif
         }
         
         public override func viewWillAppear(_ animated: Bool) {
@@ -175,10 +181,6 @@
         
         public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
             presenter.configureStackView(stackView, traitCollection: traitCollection)
-        }
-        
-        public override var preferredStatusBarStyle: UIStatusBarStyle {
-            return statusBarStyle
         }
     }
     

@@ -21,6 +21,7 @@
 		F7B304FE1F63FACB006B1711 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76282191F598A0500C4245B /* ReusableView.swift */; };
 		F7B305001F63FACD006B1711 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76282191F598A0500C4245B /* ReusableView.swift */; };
 		F7B305011F63FC4E006B1711 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Sunflare.swift */; };
+		F7D6A4C31F875FB000E59CE9 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78183511EF7886500B04C5E /* StackViewController.swift */; };
 		F7F721641F5FC80300EA2877 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Sunflare.swift */; };
 		F7F721651F5FC97D00EA2877 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78183511EF7886500B04C5E /* StackViewController.swift */; };
 /* End PBXBuildFile section */
@@ -500,6 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7D6A4C31F875FB000E59CE9 /* StackViewController.swift in Sources */,
 				F7B305001F63FACD006B1711 /* ReusableView.swift in Sources */,
 				F7B305011F63FC4E006B1711 /* Sunflare.swift in Sources */,
 			);
