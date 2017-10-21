@@ -61,8 +61,10 @@ public class ReusableView<P: ReusableViewPresenter>: View {
             presenter?.viewDidFail(error: error)
         }
     }
-    
+
     #if os(OSX)
+    public override var isFlipped: Bool { return true }
+
     public override func mouseDown(with event: NSEvent) {
         let point = convert(event.locationInWindow, from: nil)
         do {
