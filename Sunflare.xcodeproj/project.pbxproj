@@ -7,23 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30E49DA31F3708F1005A8A1E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E49DA21F3708F1005A8A1E /* CollectionViewCell.swift */; };
 		52D6D9871BEFF229002C0205 /* Sunflare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* Sunflare.framework */; };
-		8933C7851EB5B820000D00A4 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Sunflare.swift */; };
 		8933C78E1EB5B82C000D00A4 /* SunflareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* SunflareTests.swift */; };
 		8933C78F1EB5B82C000D00A4 /* SunflareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* SunflareTests.swift */; };
 		8933C7901EB5B82D000D00A4 /* SunflareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* SunflareTests.swift */; };
 		DD7502881C68FEDE006590AF /* Sunflare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* Sunflare.framework */; };
 		DD7502921C690C7A006590AF /* Sunflare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D9F01BEFFFBE002C0205 /* Sunflare.framework */; };
-		F762821A1F598A0500C4245B /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76282191F598A0500C4245B /* ReusableView.swift */; };
-		F78183501EF5754800B04C5E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781834F1EF5754800B04C5E /* CollectionViewController.swift */; };
-		F78183521EF7886500B04C5E /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78183511EF7886500B04C5E /* StackViewController.swift */; };
-		F7B304FE1F63FACB006B1711 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76282191F598A0500C4245B /* ReusableView.swift */; };
-		F7B305001F63FACD006B1711 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76282191F598A0500C4245B /* ReusableView.swift */; };
-		F7B305011F63FC4E006B1711 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Sunflare.swift */; };
-		F7D6A4C31F875FB000E59CE9 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78183511EF7886500B04C5E /* StackViewController.swift */; };
-		F7F721641F5FC80300EA2877 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Sunflare.swift */; };
-		F7F721651F5FC97D00EA2877 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78183511EF7886500B04C5E /* StackViewController.swift */; };
+		F70C7E981FAC57380000E4C3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E931FAC57380000E4C3 /* CollectionViewCell.swift */; };
+		F70C7E991FAC57380000E4C3 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E941FAC57380000E4C3 /* ReusableView.swift */; };
+		F70C7E9A1FAC57380000E4C3 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */; };
+		F70C7E9B1FAC57380000E4C3 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E961FAC57380000E4C3 /* Sunflare.swift */; };
+		F70C7E9C1FAC57380000E4C3 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E971FAC57380000E4C3 /* StackViewController.swift */; };
+		F70C7E9D1FAC57B80000E4C3 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E961FAC57380000E4C3 /* Sunflare.swift */; };
+		F70C7E9E1FAC57B90000E4C3 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E961FAC57380000E4C3 /* Sunflare.swift */; };
+		F70C7E9F1FAC57BA0000E4C3 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E961FAC57380000E4C3 /* Sunflare.swift */; };
+		F70C7EA01FAC57BB0000E4C3 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E961FAC57380000E4C3 /* Sunflare.swift */; };
+		F70C7EA11FAC57BC0000E4C3 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E961FAC57380000E4C3 /* Sunflare.swift */; };
+		F70C7EA21FAC57BC0000E4C3 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E961FAC57380000E4C3 /* Sunflare.swift */; };
+		F70C7EA31FAC586A0000E4C3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E931FAC57380000E4C3 /* CollectionViewCell.swift */; };
+		F70C7EA41FAC586A0000E4C3 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */; };
+		F70C7EA51FAC586A0000E4C3 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E941FAC57380000E4C3 /* ReusableView.swift */; };
+		F70C7EA61FAC586A0000E4C3 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E971FAC57380000E4C3 /* StackViewController.swift */; };
+		F70C7EA71FAC586B0000E4C3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E931FAC57380000E4C3 /* CollectionViewCell.swift */; };
+		F70C7EA81FAC586B0000E4C3 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */; };
+		F70C7EA91FAC586B0000E4C3 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E941FAC57380000E4C3 /* ReusableView.swift */; };
+		F70C7EAA1FAC586B0000E4C3 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E971FAC57380000E4C3 /* StackViewController.swift */; };
+		F70C7EAB1FAC586C0000E4C3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E931FAC57380000E4C3 /* CollectionViewCell.swift */; };
+		F70C7EAC1FAC586C0000E4C3 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */; };
+		F70C7EAD1FAC586C0000E4C3 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E941FAC57380000E4C3 /* ReusableView.swift */; };
+		F70C7EAE1FAC586C0000E4C3 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E971FAC57380000E4C3 /* StackViewController.swift */; };
+		F70C7EAF1FAC586D0000E4C3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E931FAC57380000E4C3 /* CollectionViewCell.swift */; };
+		F70C7EB01FAC586D0000E4C3 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */; };
+		F70C7EB11FAC586D0000E4C3 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E941FAC57380000E4C3 /* ReusableView.swift */; };
+		F70C7EB21FAC586D0000E4C3 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E971FAC57380000E4C3 /* StackViewController.swift */; };
+		F70C7EB31FAC586D0000E4C3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E931FAC57380000E4C3 /* CollectionViewCell.swift */; };
+		F70C7EB41FAC586D0000E4C3 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */; };
+		F70C7EB51FAC586D0000E4C3 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E941FAC57380000E4C3 /* ReusableView.swift */; };
+		F70C7EB61FAC586D0000E4C3 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E971FAC57380000E4C3 /* StackViewController.swift */; };
+		F70C7EB71FAC586E0000E4C3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E931FAC57380000E4C3 /* CollectionViewCell.swift */; };
+		F70C7EB81FAC586E0000E4C3 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */; };
+		F70C7EB91FAC586E0000E4C3 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E941FAC57380000E4C3 /* ReusableView.swift */; };
+		F70C7EBA1FAC586E0000E4C3 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E971FAC57380000E4C3 /* StackViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,21 +75,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		30E49DA21F3708F1005A8A1E /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		52D6D97C1BEFF229002C0205 /* Sunflare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sunflare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9861BEFF229002C0205 /* Sunflare-iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sunflare-iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9E21BEFFF6E002C0205 /* Sunflare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sunflare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9F01BEFFFBE002C0205 /* Sunflare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sunflare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6DA0F1BF000BD002C0205 /* Sunflare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sunflare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8933C7841EB5B820000D00A4 /* Sunflare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sunflare.swift; sourceTree = "<group>"; };
 		8933C7891EB5B82A000D00A4 /* SunflareTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunflareTests.swift; sourceTree = "<group>"; };
 		AD2FAA261CD0B6D800659CF4 /* Sunflare.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sunflare.plist; sourceTree = "<group>"; };
 		AD2FAA281CD0B6E100659CF4 /* SunflareTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SunflareTests.plist; sourceTree = "<group>"; };
 		DD75027A1C68FCFC006590AF /* Sunflare-macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sunflare-macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD75028D1C690C7A006590AF /* Sunflare-tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sunflare-tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F76282191F598A0500C4245B /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
-		F781834F1EF5754800B04C5E /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
-		F78183511EF7886500B04C5E /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
+		F70C7E8F1FAC56110000E4C3 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		F70C7E911FAC566D0000E4C3 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		F70C7E931FAC57380000E4C3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = Sunflare/CollectionViewCell.swift; sourceTree = "<group>"; };
+		F70C7E941FAC57380000E4C3 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReusableView.swift; path = Sunflare/ReusableView.swift; sourceTree = "<group>"; };
+		F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = Sunflare/CollectionViewController.swift; sourceTree = "<group>"; };
+		F70C7E961FAC57380000E4C3 /* Sunflare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sunflare.swift; path = Sunflare/Sunflare.swift; sourceTree = "<group>"; };
+		F70C7E971FAC57380000E4C3 /* StackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StackViewController.swift; path = Sunflare/StackViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +153,8 @@
 		52D6D9721BEFF229002C0205 = {
 			isa = PBXGroup;
 			children = (
+				F70C7E911FAC566D0000E4C3 /* Cartfile */,
+				F70C7E8F1FAC56110000E4C3 /* Package.swift */,
 				8933C7811EB5B7E0000D00A4 /* Sources */,
 				8933C7831EB5B7EB000D00A4 /* Tests */,
 				52D6D99C1BEFF38C002C0205 /* Configs */,
@@ -160,11 +188,11 @@
 		8933C7811EB5B7E0000D00A4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				8933C7841EB5B820000D00A4 /* Sunflare.swift */,
-				30E49DA21F3708F1005A8A1E /* CollectionViewCell.swift */,
-				F781834F1EF5754800B04C5E /* CollectionViewController.swift */,
-				F76282191F598A0500C4245B /* ReusableView.swift */,
-				F78183511EF7886500B04C5E /* StackViewController.swift */,
+				F70C7E931FAC57380000E4C3 /* CollectionViewCell.swift */,
+				F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */,
+				F70C7E941FAC57380000E4C3 /* ReusableView.swift */,
+				F70C7E971FAC57380000E4C3 /* StackViewController.swift */,
+				F70C7E961FAC57380000E4C3 /* Sunflare.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -474,11 +502,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F78183521EF7886500B04C5E /* StackViewController.swift in Sources */,
-				F762821A1F598A0500C4245B /* ReusableView.swift in Sources */,
-				F78183501EF5754800B04C5E /* CollectionViewController.swift in Sources */,
-				30E49DA31F3708F1005A8A1E /* CollectionViewCell.swift in Sources */,
-				8933C7851EB5B820000D00A4 /* Sunflare.swift in Sources */,
+				F70C7E9B1FAC57380000E4C3 /* Sunflare.swift in Sources */,
+				F70C7E981FAC57380000E4C3 /* CollectionViewCell.swift in Sources */,
+				F70C7E9A1FAC57380000E4C3 /* CollectionViewController.swift in Sources */,
+				F70C7E9C1FAC57380000E4C3 /* StackViewController.swift in Sources */,
+				F70C7E991FAC57380000E4C3 /* ReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,7 +514,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F70C7EB01FAC586D0000E4C3 /* CollectionViewController.swift in Sources */,
+				F70C7EB11FAC586D0000E4C3 /* ReusableView.swift in Sources */,
 				8933C7901EB5B82D000D00A4 /* SunflareTests.swift in Sources */,
+				F70C7EB21FAC586D0000E4C3 /* StackViewController.swift in Sources */,
+				F70C7EA01FAC57BB0000E4C3 /* Sunflare.swift in Sources */,
+				F70C7EAF1FAC586D0000E4C3 /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +527,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F70C7EA81FAC586B0000E4C3 /* CollectionViewController.swift in Sources */,
+				F70C7EA71FAC586B0000E4C3 /* CollectionViewCell.swift in Sources */,
+				F70C7EAA1FAC586B0000E4C3 /* StackViewController.swift in Sources */,
+				F70C7E9E1FAC57B90000E4C3 /* Sunflare.swift in Sources */,
+				F70C7EA91FAC586B0000E4C3 /* ReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,9 +539,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7D6A4C31F875FB000E59CE9 /* StackViewController.swift in Sources */,
-				F7B305001F63FACD006B1711 /* ReusableView.swift in Sources */,
-				F7B305011F63FC4E006B1711 /* Sunflare.swift in Sources */,
+				F70C7EAC1FAC586C0000E4C3 /* CollectionViewController.swift in Sources */,
+				F70C7EAB1FAC586C0000E4C3 /* CollectionViewCell.swift in Sources */,
+				F70C7EAE1FAC586C0000E4C3 /* StackViewController.swift in Sources */,
+				F70C7E9F1FAC57BA0000E4C3 /* Sunflare.swift in Sources */,
+				F70C7EAD1FAC586C0000E4C3 /* ReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,9 +551,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7F721641F5FC80300EA2877 /* Sunflare.swift in Sources */,
-				F7F721651F5FC97D00EA2877 /* StackViewController.swift in Sources */,
-				F7B304FE1F63FACB006B1711 /* ReusableView.swift in Sources */,
+				F70C7EA41FAC586A0000E4C3 /* CollectionViewController.swift in Sources */,
+				F70C7EA31FAC586A0000E4C3 /* CollectionViewCell.swift in Sources */,
+				F70C7EA61FAC586A0000E4C3 /* StackViewController.swift in Sources */,
+				F70C7E9D1FAC57B80000E4C3 /* Sunflare.swift in Sources */,
+				F70C7EA51FAC586A0000E4C3 /* ReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,7 +563,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F70C7EB41FAC586D0000E4C3 /* CollectionViewController.swift in Sources */,
+				F70C7EB51FAC586D0000E4C3 /* ReusableView.swift in Sources */,
 				8933C78F1EB5B82C000D00A4 /* SunflareTests.swift in Sources */,
+				F70C7EB61FAC586D0000E4C3 /* StackViewController.swift in Sources */,
+				F70C7EA11FAC57BC0000E4C3 /* Sunflare.swift in Sources */,
+				F70C7EB31FAC586D0000E4C3 /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,7 +576,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F70C7EB81FAC586E0000E4C3 /* CollectionViewController.swift in Sources */,
+				F70C7EB91FAC586E0000E4C3 /* ReusableView.swift in Sources */,
 				8933C78E1EB5B82C000D00A4 /* SunflareTests.swift in Sources */,
+				F70C7EBA1FAC586E0000E4C3 /* StackViewController.swift in Sources */,
+				F70C7EA21FAC57BC0000E4C3 /* Sunflare.swift in Sources */,
+				F70C7EB71FAC586E0000E4C3 /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,7 +796,6 @@
 				PRODUCT_NAME = Sunflare;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.2;
 			};
@@ -767,7 +818,6 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.2;
 			};

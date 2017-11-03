@@ -47,7 +47,9 @@
             
             stackView.spacing = 0
             stackView.orientation = .vertical
-            stackView.distribution = .fill
+            if #available(OSX 10.11, *) {
+                stackView.distribution = .fill
+            }
             presenter.configureStackView(stackView)
             
             presenter.stackView = stackView
@@ -57,12 +59,14 @@
                 presenter.viewDidFail(error: error)
             }
             
-            NSLayoutConstraint.activate([
-                stackView.topAnchor.constraint(equalTo: view.topAnchor),
-                stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-                stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-                ])
+            if #available(OSX 10.11, *) {
+                NSLayoutConstraint.activate([
+                    stackView.topAnchor.constraint(equalTo: view.topAnchor),
+                    stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                    stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                    stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+                    ])
+            }
         }
         
         public override func viewWillAppear() {
@@ -183,5 +187,4 @@
             presenter.configureStackView(stackView, traitCollection: traitCollection)
         }
     }
-    
 #endif

@@ -6,6 +6,8 @@
 //  Copyright © 2017 Sunflare. All rights reserved.
 //
 
+#if os(OSX)
+#else
 import UIKit
 
 public protocol CollectionViewCellPresenter: class, ViewPresenter {
@@ -44,3 +46,4 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
         }
     }
 }
+#endif
