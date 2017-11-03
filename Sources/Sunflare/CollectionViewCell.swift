@@ -6,7 +6,7 @@
 //  Copyright © 2017 Sunflare. All rights reserved.
 //
 
-#if os(OSX)
+#if os(OSX) || os(watchOS)
 #else
 import UIKit
 

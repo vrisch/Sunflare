@@ -88,7 +88,7 @@
         }
     }
     
-#else
+#elseif os(iOS) || os(tvOS)
     import UIKit
     
     public protocol StackViewPresenter: class, ViewPresenter {
