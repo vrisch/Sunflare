@@ -26,7 +26,26 @@ public extension CollectionViewCellPresenter {
 public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionViewCell {
     var presenter: P? = nil
     var indexPath: IndexPath? = nil
-
+    
+    lazy var stackView: UIStackView = {
+        let stackView = UIStackView(frame: .zero)
+        if #available(iOS 11.0, *) {
+            stackView.spacing = UIStackView.spacingUseSystem
+        } else {
+            stackView.spacing = 8
+        }
+        stackView.axis = .vertical
+        contentView.addSubview(self)
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            topAnchor.constraint(equalTo: contentView.topAnchor),
+            bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+            ])
+        return stackView
+    }()
+    
     public func load(presenter p: P, at ip: IndexPath) {
         if let presenter = presenter, let indexPath = indexPath {
             do {
