@@ -35,13 +35,13 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
             stackView.spacing = 8
         }
         stackView.axis = .vertical
-        contentView.addSubview(self)
+        contentView.addSubview(stackView)
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            topAnchor.constraint(equalTo: contentView.topAnchor),
-            bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
             ])
         return stackView
     }()
