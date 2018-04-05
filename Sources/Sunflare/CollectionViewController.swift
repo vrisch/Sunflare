@@ -11,18 +11,19 @@
     import UIKit
     
     public protocol CollectionViewPresenter: class, ViewPresenter {
+        func configureLayout(_ layout: UICollectionViewFlowLayout)
+
         func viewDidLoad(_ collectionViewController: CollectionViewController<Self>) throws
         func viewWillAppear(_ collectionViewController: CollectionViewController<Self>) throws
         func viewDidDisappear(_ collectionViewController: CollectionViewController<Self>) throws
 
         func viewDidFail(_ collectionViewController: CollectionViewController<Self>, error: Error)
 
-        func configureLayout(_ layout: UICollectionViewFlowLayout)
-        func numberOfItemsInSection(_ section: Int) -> Int
-        func cellForItemAt(indexPath: IndexPath) -> UICollectionViewCell
+        func numberOfItemsInSection(_ collectionViewController: CollectionViewController<Self>, section: Int) -> Int
+        func cellForItemAt(_ collectionViewController: CollectionViewController<Self>, indexPath: IndexPath) -> UICollectionViewCell
         
-        func selectItemAt(indexPath: IndexPath) throws
-        func deselectItemAt(indexPath: IndexPath) throws
+        func selectItemAt(_ collectionViewController: CollectionViewController<Self>, indexPath: IndexPath) throws
+        func deselectItemAt(_ collectionViewController: CollectionViewController<Self>, indexPath: IndexPath) throws
         
         func keyCommands() -> [(input: String, modifierFlags: UIKeyModifierFlags, discoverabilityTitle: String)]
         func handleKeyCommand(input: String) throws
@@ -31,9 +32,9 @@
     public extension CollectionViewPresenter {
         func viewDidFail(_ collectionViewController: CollectionViewController<Self>, error: Error) {
         }
-        func selectItemAt(indexPath: IndexPath) throws {
+        func selectItemAt(_ collectionViewController: CollectionViewController<Self>, indexPath: IndexPath) throws {
         }
-        func deselectItemAt(indexPath: IndexPath) throws {
+        func deselectItemAt(_ collectionViewController: CollectionViewController<Self>, indexPath: IndexPath) throws {
         }
         func keyCommands() -> [(input: String, modifierFlags: UIKeyModifierFlags, discoverabilityTitle: String)] {
             return []
@@ -100,17 +101,17 @@
         }
         
         public override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return presenter.numberOfItemsInSection(section)
+            return presenter.numberOfItemsInSection(self, section: section)
         }
         
         public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            return presenter.cellForItemAt(indexPath: indexPath)
+            return presenter.cellForItemAt(self, indexPath: indexPath)
         }
         
         public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             becomeFirstResponder()
             do {
-                try presenter.selectItemAt(indexPath: indexPath)
+                try presenter.selectItemAt(self, indexPath: indexPath)
             } catch let error {
                 presenter.viewDidFail(self, error: error)
             }
@@ -118,7 +119,7 @@
         
         public override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
             do {
-                try presenter.deselectItemAt(indexPath: indexPath)
+                try presenter.deselectItemAt(self, indexPath: indexPath)
             } catch let error {
                 presenter.viewDidFail(self, error: error)
             }
