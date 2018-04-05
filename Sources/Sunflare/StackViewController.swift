@@ -10,26 +10,29 @@
     import Cocoa
     
     public protocol StackViewPresenter: class, ViewPresenter {
-        weak var stackView: NSStackView? { get set }
-        weak var stackViewController: StackViewController<Self>? { get set }
+        func viewDidLoad(_ stackViewController: StackViewController<Self>) throws
+        func viewWillAppear(_ stackViewController: StackViewController<Self>) throws
+        func viewDidDisappear(_ stackViewController: StackViewController<Self>) throws
         
+        func viewDidFail(_ stackViewController: StackViewController<Self>, error: Error)
+
         func configureStackView(_ stackView: NSStackView)
     }
     
     public extension StackViewPresenter {
-        
+        func viewDidFail(_ stackViewController: StackViewController<Self>, error: Error) {
+        }
         func configureStackView(_ stackView: NSStackView) {
         }
     }
-    
+
     public class StackViewController<P: StackViewPresenter>: NSViewController {
-        var stackView: NSStackView!
+        public var stackView: NSStackView!
         let presenter: P
         
         public init?(presenter: P) {
             self.presenter = presenter
             super.init(nibName: nil, bundle: nil)
-            presenter.stackViewController = self
         }
         
         public required init?(coder aDecoder: NSCoder) {
@@ -52,11 +55,10 @@
             }
             presenter.configureStackView(stackView)
             
-            presenter.stackView = stackView
             do {
-                try presenter.viewDidLoad()
+                try presenter.viewDidLoad(self)
             } catch let error {
-                presenter.viewDidFail(error: error)
+                presenter.viewDidFail(self, error: error)
             }
             
             if #available(OSX 10.11, *) {
@@ -72,18 +74,18 @@
         public override func viewWillAppear() {
             super.viewWillAppear()
             do {
-                try presenter.viewWillAppear()
+                try presenter.viewWillAppear(self)
             } catch let error {
-                presenter.viewDidFail(error: error)
+                presenter.viewDidFail(self, error: error)
             }
         }
         
         public override func viewDidDisappear() {
             super.viewDidDisappear()
             do {
-                try presenter.viewDidDisappear()
+                try presenter.viewDidDisappear(self)
             } catch let error {
-                presenter.viewDidFail(error: error)
+                presenter.viewDidFail(self, error: error)
             }
         }
     }
@@ -92,26 +94,29 @@
     import UIKit
     
     public protocol StackViewPresenter: class, ViewPresenter {
-        weak var stackView: UIStackView? { get set }
-        weak var stackViewController: StackViewController<Self>? { get set }
+        func viewDidLoad(_ stackViewController: StackViewController<Self>) throws
+        func viewWillAppear(_ stackViewController: StackViewController<Self>) throws
+        func viewDidDisappear(_ stackViewController: StackViewController<Self>) throws
+        
+        func viewDidFail(_ stackViewController: StackViewController<Self>, error: Error)
         
         func configureStackView(_ stackView: UIStackView, traitCollection: UITraitCollection)
     }
     
     public extension StackViewPresenter {
-        
+        func viewDidFail(_ stackViewController: StackViewController<Self>, error: Error) {
+        }
         func configureStackView(_ stackView: UIStackView, traitCollection: UITraitCollection) {
         }
     }
-    
+
     public class StackViewController<P: StackViewPresenter>: UIViewController {
-        var stackView: UIStackView!
+        public var stackView: UIStackView!
         let presenter: P
-        
+
         public init(presenter: P) {
             self.presenter = presenter
             super.init(nibName: nil, bundle: nil)
-            presenter.stackViewController = self
         }
         
         public required init?(coder aDecoder: NSCoder) {
@@ -133,11 +138,10 @@
             stackView.distribution = .fill
             presenter.configureStackView(stackView, traitCollection: traitCollection)
             
-            presenter.stackView = stackView
             do {
-                try presenter.viewDidLoad()
+                try presenter.viewDidLoad(self)
             } catch let error {
-                presenter.viewDidFail(error: error)
+                presenter.viewDidFail(self, error: error)
             }
             
             func normalContraints() {
@@ -150,7 +154,7 @@
             }
             
             #if os(iOS)
-                if #available(iOSApplicationExtension 11.0, *) {
+                if #available(iOS 11.0, *) {
                     NSLayoutConstraint.activate([
                         stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
                         stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -168,18 +172,18 @@
         public override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             do {
-                try presenter.viewWillAppear()
+                try presenter.viewWillAppear(self)
             } catch let error {
-                presenter.viewDidFail(error: error)
+                presenter.viewDidFail(self, error: error)
             }
         }
         
         public override func viewDidDisappear(_ animated: Bool) {
             super.viewDidDisappear(animated)
             do {
-                try presenter.viewDidDisappear()
+                try presenter.viewDidDisappear(self)
             } catch let error {
-                presenter.viewDidFail(error: error)
+                presenter.viewDidFail(self, error: error)
             }
         }
         

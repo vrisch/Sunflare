@@ -18,18 +18,22 @@
 #endif
     
     public protocol ReusableViewPresenter: class, ViewPresenter {
-        weak var reusableView: ReusableView<Self>? { get set }
-        
+        func viewDidLoad(_ reusableView: ReusableView<Self>) throws
+        func viewWillAppear(_ reusableView: ReusableView<Self>) throws
+        func viewDidDisappear(_ reusableView: ReusableView<Self>) throws
+
+        func viewDidFail(_ reusableView: ReusableView<Self>, error: Error)
+
         func mouseDown(point: CGPoint) throws -> Bool
         func mouseUp(point: CGPoint) throws -> Bool
     }
     
     public extension ReusableViewPresenter {
-        
+        func viewDidFail(_ reusableView: ReusableView<Self>, error: Error) {
+        }
         func mouseDown(point: CGPoint) throws -> Bool {
             return false
         }
-        
         func mouseUp(point: CGPoint) throws -> Bool {
             return false
         }
@@ -39,29 +43,27 @@
         public var presenter: P? = nil {
             willSet {
                 do {
-                    try presenter?.viewDidDisappear()
+                    try presenter?.viewDidDisappear(self)
                     subviews.forEach { $0.removeFromSuperview() }
-                    presenter?.reusableView = nil
                 } catch let error {
-                    presenter?.viewDidFail(error: error)
+                    presenter?.viewDidFail(self, error: error)
                 }
             }
             didSet {
                 do {
-                    presenter?.reusableView = self
-                    try presenter?.viewDidLoad()
-                    try presenter?.viewWillAppear()
+                    try presenter?.viewDidLoad(self)
+                    try presenter?.viewWillAppear(self)
                 } catch let error {
-                    presenter?.viewDidFail(error: error)
+                    presenter?.viewDidFail(self, error: error)
                 }
             }
         }
         
         deinit {
             do {
-                try presenter?.viewDidDisappear()
+                try presenter?.viewDidDisappear(self)
             } catch let error {
-                presenter?.viewDidFail(error: error)
+                presenter?.viewDidFail(self, error: error)
             }
         }
         
@@ -75,7 +77,7 @@
                     super.mouseDown(with: event)
                 }
             } catch let error {
-                presenter?.viewDidFail(error: error)
+                presenter?.viewDidFail(self, error: error)
             }
         }
         
@@ -86,7 +88,7 @@
                     super.mouseUp(with: event)
                 }
             } catch let error {
-                presenter?.viewDidFail(error: error)
+                presenter?.viewDidFail(self, error: error)
             }
         }
         #endif

@@ -11,38 +11,43 @@
 import UIKit
 
 public protocol CollectionViewCellPresenter: class, ViewPresenter {
-    weak var cell: UICollectionViewCell? { get set }
-    weak var collectionViewController: UICollectionViewController? { get set }
+    func viewDidLoad(_ cell: UICollectionViewCell) throws
+    func viewWillAppear(_ cell: UICollectionViewCell) throws
+    func viewDidDisappear(_ cell: UICollectionViewCell) throws
+    
+    func viewDidFail(_ cell: UICollectionViewCell, error: Error)
+}
+
+public extension CollectionViewCellPresenter {
+    func viewDidFail(_ cell: UICollectionViewCell, error: Error) {
+    }
 }
 
 public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionViewCell {
     public var presenter: P? = nil {
         willSet {
             do {
-                try presenter?.viewDidDisappear()
-                presenter?.cell = nil
+                try presenter?.viewDidDisappear(self)
                 contentView.subviews.forEach { $0.removeFromSuperview() }
             } catch let error {
-                presenter?.viewDidFail(error: error)
+                presenter?.viewDidFail(self, error: error)
             }
         }
         didSet {
             do {
-                presenter?.cell = self
-                try presenter?.viewDidLoad()
-                try presenter?.viewWillAppear()
+                try presenter?.viewDidLoad(self)
+                try presenter?.viewWillAppear(self)
             } catch let error {
-                presenter?.viewDidFail(error: error)
+                presenter?.viewDidFail(self, error: error)
             }
         }
     }
     
     deinit {
         do {
-            try presenter?.viewDidDisappear()
-            presenter?.cell = nil
+            try presenter?.viewDidDisappear(self)
         } catch let error {
-            presenter?.viewDidFail(error: error)
+            presenter?.viewDidFail(self, error: error)
         }
     }
 }

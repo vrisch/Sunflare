@@ -11,9 +11,12 @@
     import UIKit
     
     public protocol CollectionViewPresenter: class, ViewPresenter {
-        weak var collectionView: UICollectionView? { get set }
-        weak var collectionViewController: CollectionViewController<Self>? { get set }
-        
+        func viewDidLoad(_ collectionViewController: CollectionViewController<Self>) throws
+        func viewWillAppear(_ collectionViewController: CollectionViewController<Self>) throws
+        func viewDidDisappear(_ collectionViewController: CollectionViewController<Self>) throws
+
+        func viewDidFail(_ collectionViewController: CollectionViewController<Self>, error: Error)
+
         func configureLayout(_ layout: UICollectionViewFlowLayout)
         func numberOfItemsInSection(_ section: Int) -> Int
         func cellForItemAt(indexPath: IndexPath) -> UICollectionViewCell
@@ -26,13 +29,12 @@
     }
     
     public extension CollectionViewPresenter {
-        
+        func viewDidFail(_ collectionViewController: CollectionViewController<Self>, error: Error) {
+        }
         func selectItemAt(indexPath: IndexPath) throws {
         }
-        
         func deselectItemAt(indexPath: IndexPath) throws {
         }
-        
         func keyCommands() -> [(input: String, modifierFlags: UIKeyModifierFlags, discoverabilityTitle: String)] {
             return []
         }
@@ -51,15 +53,14 @@
             layout.minimumInteritemSpacing = 8
             layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
             #if os(iOS)
-                if #available(iOSApplicationExtension 11.0, *) {
+                if #available(iOS 11.0, *) {
                     layout.sectionInsetReference = .fromSafeArea
                 }
             #endif
+
             presenter.configureLayout(layout)
-            
+
             super.init(collectionViewLayout: layout)
-            
-            presenter.collectionViewController = self
         }
         
         public required init?(coder aDecoder: NSCoder) {
@@ -72,20 +73,19 @@
             edgesForExtendedLayout = []
             collectionView?.backgroundColor = .white
             
-            presenter.collectionView = collectionView
             do {
-                try presenter.viewDidLoad()
+                try presenter.viewDidLoad(self)
             } catch let error {
-                presenter.viewDidFail(error: error)
+                presenter.viewDidFail(self, error: error)
             }
         }
         
         public override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             do {
-                try presenter.viewWillAppear()
+                try presenter.viewWillAppear(self)
             } catch let error {
-                presenter.viewDidFail(error: error)
+                presenter.viewDidFail(self, error: error)
             }
             
         }
@@ -93,9 +93,9 @@
         public override func viewDidDisappear(_ animated: Bool) {
             super.viewDidDisappear(animated)
             do {
-                try presenter.viewDidDisappear()
+                try presenter.viewDidDisappear(self)
             } catch let error {
-                presenter.viewDidFail(error: error)
+                presenter.viewDidFail(self, error: error)
             }
         }
         
@@ -112,7 +112,7 @@
             do {
                 try presenter.selectItemAt(indexPath: indexPath)
             } catch let error {
-                presenter.viewDidFail(error: error)
+                presenter.viewDidFail(self, error: error)
             }
         }
         
@@ -120,7 +120,7 @@
             do {
                 try presenter.deselectItemAt(indexPath: indexPath)
             } catch let error {
-                presenter.viewDidFail(error: error)
+                presenter.viewDidFail(self, error: error)
             }
         }
         
@@ -140,7 +140,7 @@
             do {
                 try presenter.handleKeyCommand(input: sender.input!)
             } catch let error {
-                presenter.viewDidFail(error: error)
+                presenter.viewDidFail(self, error: error)
             }
         }
     }

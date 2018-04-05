@@ -9,25 +9,4 @@
 import Foundation
 
 public protocol ViewPresenter {
-    func viewDidLoad() throws
-    func viewWillAppear() throws
-    func viewDidDisappear() throws
-    
-    func viewDidFail(error: Error)
-}
-
-public extension ViewPresenter {
-    
-    func viewDidLoad() throws {
-    }
-    
-    func viewWillAppear() throws {
-    }
-    
-    func viewDidDisappear() throws {
-    }
-    
-    func viewDidFail(error: Error) {
-        print("viewDidFail: \(error)")
-    }
 }
