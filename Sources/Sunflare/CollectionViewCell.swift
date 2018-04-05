@@ -11,43 +11,50 @@
 import UIKit
 
 public protocol CollectionViewCellPresenter: class, ViewPresenter {
-    func viewDidLoad(_ cell: UICollectionViewCell) throws
-    func viewWillAppear(_ cell: UICollectionViewCell) throws
-    func viewDidDisappear(_ cell: UICollectionViewCell) throws
+    func viewDidLoad(_ cell: CollectionViewCell<Self>, at: IndexPath) throws
+    func viewWillAppear(_ cell: CollectionViewCell<Self>, at: IndexPath) throws
+    func viewDidDisappear(_ cell: CollectionViewCell<Self>, at: IndexPath) throws
     
-    func viewDidFail(_ cell: UICollectionViewCell, error: Error)
+    func viewDidFail(_ cell: CollectionViewCell<Self>, at: IndexPath, error: Error)
 }
 
 public extension CollectionViewCellPresenter {
-    func viewDidFail(_ cell: UICollectionViewCell, error: Error) {
+    func viewDidFail(_ cell: CollectionViewCell<Self>, at: IndexPath, error: Error) {
     }
 }
 
 public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionViewCell {
-    public var presenter: P? = nil {
-        willSet {
+    var presenter: P? = nil
+    var indexPath: IndexPath? = nil
+
+    func load(presenter p: P, at ip: IndexPath) {
+        if let presenter = presenter, let indexPath = indexPath {
             do {
-                try presenter?.viewDidDisappear(self)
+                try presenter.viewDidDisappear(self, at: indexPath)
                 contentView.subviews.forEach { $0.removeFromSuperview() }
             } catch let error {
-                presenter?.viewDidFail(self, error: error)
+                presenter.viewDidFail(self, at: indexPath, error: error)
             }
         }
-        didSet {
+        presenter = p
+        indexPath = ip
+        if let presenter = presenter, let indexPath = indexPath {
             do {
-                try presenter?.viewDidLoad(self)
-                try presenter?.viewWillAppear(self)
+                try presenter.viewDidLoad(self, at: indexPath)
+                try presenter.viewWillAppear(self, at: indexPath)
             } catch let error {
-                presenter?.viewDidFail(self, error: error)
+                presenter.viewDidFail(self, at: indexPath, error: error)
             }
         }
     }
     
     deinit {
-        do {
-            try presenter?.viewDidDisappear(self)
-        } catch let error {
-            presenter?.viewDidFail(self, error: error)
+        if let presenter = presenter, let indexPath = indexPath {
+            do {
+                try presenter.viewDidDisappear(self, at: indexPath)
+            } catch let error {
+                presenter.viewDidFail(self, at: indexPath, error: error)
+            }
         }
     }
 }
