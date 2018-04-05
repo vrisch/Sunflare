@@ -27,7 +27,7 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
     var presenter: P? = nil
     var indexPath: IndexPath? = nil
 
-    func load(presenter p: P, at ip: IndexPath) {
+    public func load(presenter p: P, at ip: IndexPath) {
         if let presenter = presenter, let indexPath = indexPath {
             do {
                 try presenter.viewDidDisappear(self, at: indexPath)
