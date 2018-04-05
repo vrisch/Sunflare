@@ -27,7 +27,7 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
     var presenter: P? = nil
     var indexPath: IndexPath? = nil
     
-    lazy var stackView: UIStackView = {
+    public lazy var stackView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
         if #available(iOS 11.0, *) {
             stackView.spacing = UIStackView.spacingUseSystem
