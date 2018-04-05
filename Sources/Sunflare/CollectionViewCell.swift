@@ -36,7 +36,7 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
         }
         stackView.axis = .vertical
         contentView.addSubview(stackView)
-        translatesAutoresizingMaskIntoConstraints = false
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
