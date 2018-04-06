@@ -62,7 +62,7 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
 public extension CollectionViewCell {
     
     public var stackView: UIStackView {
-        guard let stackView = contentView.subviews[0] as? UIStackView else {
+        guard let stackView = contentView.subviews.first as? UIStackView else {
             let stackView = UIStackView(frame: .zero)
             if #available(iOS 11.0, *) {
                 stackView.spacing = UIStackView.spacingUseSystem
