@@ -24,13 +24,18 @@
         
         func selectItemAt(_ collectionViewController: CollectionViewController<Self>, indexPath: IndexPath) throws
         func deselectItemAt(_ collectionViewController: CollectionViewController<Self>, indexPath: IndexPath) throws
-        
+
+        func sizeForItem(_ collectionViewController: CollectionViewController<Self>, layout: UICollectionViewFlowLayout, indexPath: IndexPath) throws -> CGSize
+
         func keyCommands() -> [(input: String, modifierFlags: UIKeyModifierFlags, discoverabilityTitle: String)]
         func handleKeyCommand(input: String) throws
     }
     
     public extension CollectionViewPresenter {
         func viewDidFail(_ collectionViewController: CollectionViewController<Self>, error: Error) {
+        }
+        func sizeForItem(_ collectionViewController: CollectionViewController<Self>, layout: UICollectionViewFlowLayout, indexPath: IndexPath) throws -> CGSize {
+            return layout.itemSize
         }
         func selectItemAt(_ collectionViewController: CollectionViewController<Self>, indexPath: IndexPath) throws {
         }
@@ -43,7 +48,7 @@
         }
     }
     
-    public class CollectionViewController<P: CollectionViewPresenter>: UICollectionViewController {
+    public class CollectionViewController<P: CollectionViewPresenter>: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         let presenter: P
         
         public init(presenter: P) {
@@ -125,6 +130,15 @@
             }
         }
         
+        public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            do {
+                return try presenter.sizeForItem(self, layout: collectionViewLayout as! UICollectionViewFlowLayout, indexPath: indexPath)
+            } catch let error {
+                presenter.viewDidFail(self, error: error)
+                return .zero
+            }
+        }
+
         public override var canBecomeFirstResponder: Bool {
             return true
         }

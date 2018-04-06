@@ -82,25 +82,6 @@ public extension CollectionViewCell {
         }
         return stackView
     }
-    
-    /*    public lazy var stackView: UIStackView = {
-     let stackView = UIStackView(frame: .zero)
-     if #available(iOS 11.0, *) {
-     stackView.spacing = UIStackView.spacingUseSystem
-     } else {
-     stackView.spacing = 8
-     }
-     stackView.axis = .vertical
-     contentView.addSubview(stackView)
-     stackView.translatesAutoresizingMaskIntoConstraints = false
-     NSLayoutConstraint.activate([
-     stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-     stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-     stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-     stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
-     ])
-     return stackView
-     }()*/
 }
 
 #endif
