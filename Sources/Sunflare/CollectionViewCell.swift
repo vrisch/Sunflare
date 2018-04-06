@@ -27,26 +27,7 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
     var presenter: P? = nil
     var indexPath: IndexPath? = nil
     
-    public lazy var stackView: UIStackView = {
-        let stackView = UIStackView(frame: .zero)
-        if #available(iOS 11.0, *) {
-            stackView.spacing = UIStackView.spacingUseSystem
-        } else {
-            stackView.spacing = 8
-        }
-        stackView.axis = .vertical
-        contentView.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
-            ])
-        return stackView
-    }()
-    
-    public func load(presenter p: P, at ip: IndexPath) {
+    public func load(presenter newPresenter: P, at: IndexPath) {
         if let presenter = presenter, let indexPath = indexPath {
             do {
                 try presenter.viewDidDisappear(self, at: indexPath)
@@ -55,8 +36,8 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
                 presenter.viewDidFail(self, at: indexPath, error: error)
             }
         }
-        presenter = p
-        indexPath = ip
+        presenter = newPresenter
+        indexPath = at
         if let presenter = presenter, let indexPath = indexPath {
             do {
                 try presenter.viewDidLoad(self, at: indexPath)
@@ -77,4 +58,49 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
         }
     }
 }
+
+public extension CollectionViewCell {
+    
+    public var stackView: UIStackView {
+        guard let stackView = contentView.subviews[0] as? UIStackView else {
+            let stackView = UIStackView(frame: .zero)
+            if #available(iOS 11.0, *) {
+                stackView.spacing = UIStackView.spacingUseSystem
+            } else {
+                stackView.spacing = 8
+            }
+            stackView.axis = .vertical
+            contentView.addSubview(stackView)
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+                stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+                stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+                ])
+            return stackView
+        }
+        return stackView
+    }
+    
+    /*    public lazy var stackView: UIStackView = {
+     let stackView = UIStackView(frame: .zero)
+     if #available(iOS 11.0, *) {
+     stackView.spacing = UIStackView.spacingUseSystem
+     } else {
+     stackView.spacing = 8
+     }
+     stackView.axis = .vertical
+     contentView.addSubview(stackView)
+     stackView.translatesAutoresizingMaskIntoConstraints = false
+     NSLayoutConstraint.activate([
+     stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+     stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+     stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+     stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+     ])
+     return stackView
+     }()*/
+}
+
 #endif
