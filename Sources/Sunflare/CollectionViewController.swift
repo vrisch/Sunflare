@@ -11,17 +11,17 @@
     import UIKit
     
     public protocol CollectionViewPresenter: class, ViewPresenter {
-        func configureLayout(_ layout: UICollectionViewFlowLayout)
-
         func viewDidLoad(_ collectionViewController: CollectionViewController<Self>) throws
         func viewWillAppear(_ collectionViewController: CollectionViewController<Self>) throws
         func viewDidDisappear(_ collectionViewController: CollectionViewController<Self>) throws
 
-        func viewDidFail(_ collectionViewController: CollectionViewController<Self>, error: Error)
-
         func numberOfItemsInSection(_ collectionViewController: CollectionViewController<Self>, section: Int) -> Int
         func cellForItemAt(_ collectionViewController: CollectionViewController<Self>, indexPath: IndexPath) -> UICollectionViewCell
+
+        func configureLayout(_ layout: UICollectionViewFlowLayout)
         
+        func viewDidFail(_ collectionViewController: CollectionViewController<Self>, error: Error)
+
         func selectItemAt(_ collectionViewController: CollectionViewController<Self>, indexPath: IndexPath) throws
         func deselectItemAt(_ collectionViewController: CollectionViewController<Self>, indexPath: IndexPath) throws
 
@@ -30,8 +30,10 @@
         func keyCommands() -> [(input: String, modifierFlags: UIKeyModifierFlags, discoverabilityTitle: String)]
         func handleKeyCommand(input: String) throws
     }
-    
+
     public extension CollectionViewPresenter {
+        func configureLayout(_ layout: UICollectionViewFlowLayout) {
+        }
         func viewDidFail(_ collectionViewController: CollectionViewController<Self>, error: Error) {
         }
         func sizeForItem(_ collectionViewController: CollectionViewController<Self>, layout: UICollectionViewFlowLayout, indexPath: IndexPath) throws -> CGSize {
@@ -47,7 +49,7 @@
         func handleKeyCommand(input: String) throws {
         }
     }
-    
+
     public class CollectionViewController<P: CollectionViewPresenter>: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         let presenter: P
         
