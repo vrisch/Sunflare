@@ -28,14 +28,7 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
     var indexPath: IndexPath? = nil
     
     public func load(presenter newPresenter: P, at: IndexPath) {
-        if let presenter = presenter, let indexPath = indexPath {
-            do {
-                try presenter.viewDidDisappear(self, at: indexPath)
-                contentView.subviews.forEach { $0.removeFromSuperview() }
-            } catch let error {
-                presenter.viewDidFail(self, at: indexPath, error: error)
-            }
-        }
+        unload()
         presenter = newPresenter
         indexPath = at
         if let presenter = presenter, let indexPath = indexPath {
@@ -48,14 +41,19 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
         }
     }
     
-    deinit {
+    public func unload() {
         if let presenter = presenter, let indexPath = indexPath {
             do {
+                contentView.subviews.forEach { $0.removeFromSuperview() }
                 try presenter.viewDidDisappear(self, at: indexPath)
             } catch let error {
                 presenter.viewDidFail(self, at: indexPath, error: error)
             }
         }
+    }
+    
+    deinit {
+        unload()
     }
 }
 
