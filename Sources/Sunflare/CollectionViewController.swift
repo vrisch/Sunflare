@@ -17,7 +17,7 @@ public protocol CollectionViewPresenter: class, ViewPresenter {
     func numberOfItemsInSection(_ collectionViewController: CollectionViewController<Self>, section: Int) -> Int
     func cellForItemAt(_ collectionViewController: CollectionViewController<Self>, indexPath: IndexPath) -> UICollectionViewCell
     
-    func configureLayout(_ layout: UICollectionViewFlowLayout, traitCollection: UITraitCollection)
+    func configureLayout(_ collectionViewController: CollectionViewController<Self>, layout: UICollectionViewFlowLayout, traitCollection: UITraitCollection)
     
     func viewDidFail(_ collectionViewController: CollectionViewController<Self>, error: Error)
     
@@ -31,7 +31,7 @@ public protocol CollectionViewPresenter: class, ViewPresenter {
 }
 
 public extension CollectionViewPresenter {
-    func configureLayout(_ layout: UICollectionViewFlowLayout, traitCollection: UITraitCollection) {
+    func configureLayout(_ collectionViewController: CollectionViewController<Self>, layout: UICollectionViewFlowLayout, traitCollection: UITraitCollection) {
     }
     func viewDidFail(_ collectionViewController: CollectionViewController<Self>, error: Error) {
     }
@@ -67,7 +67,7 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
         
         super.init(collectionViewLayout: layout)
         
-        presenter.configureLayout(layout, traitCollection: traitCollection)
+        presenter.configureLayout(self, layout: layout, traitCollection: traitCollection)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -162,7 +162,7 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
     
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            presenter.configureLayout(layout, traitCollection: traitCollection)
+            presenter.configureLayout(self, layout: layout, traitCollection: traitCollection)
         }
     }
 }
