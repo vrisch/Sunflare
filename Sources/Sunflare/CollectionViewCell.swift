@@ -6,8 +6,7 @@
 //  Copyright © 2017 Sunflare. All rights reserved.
 //
 
-#if os(OSX) || os(watchOS)
-#else
+#if canImport(UIKit)
 import UIKit
 
 public protocol CollectionViewCellPresenter: class, ViewPresenter {
@@ -81,5 +80,4 @@ public extension CollectionViewCell {
         return stackView
     }
 }
-
 #endif
