@@ -31,7 +31,7 @@ public protocol CollectionViewPresenter: class, ViewPresenter {
 }
 
 public extension CollectionViewPresenter {
-    func configureLayout(_ layout: UICollectionViewFlowLayout) {
+    func configureLayout(_ layout: UICollectionViewFlowLayout, traitCollection: UITraitCollection) {
     }
     func viewDidFail(_ collectionViewController: CollectionViewController<Self>, error: Error) {
     }
