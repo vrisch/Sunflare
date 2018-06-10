@@ -48,6 +48,10 @@
 		F70C7EB81FAC586E0000E4C3 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */; };
 		F70C7EB91FAC586E0000E4C3 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E941FAC57380000E4C3 /* ReusableView.swift */; };
 		F70C7EBA1FAC586E0000E4C3 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E971FAC57380000E4C3 /* StackViewController.swift */; };
+		F7AEB72220CD761600BCCC0C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AEB72120CD761600BCCC0C /* WindowController.swift */; };
+		F7AEB72320CD761600BCCC0C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AEB72120CD761600BCCC0C /* WindowController.swift */; };
+		F7AEB72420CD761600BCCC0C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AEB72120CD761600BCCC0C /* WindowController.swift */; };
+		F7AEB72520CD761600BCCC0C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AEB72120CD761600BCCC0C /* WindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +96,7 @@
 		F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = Sunflare/CollectionViewController.swift; sourceTree = "<group>"; };
 		F70C7E961FAC57380000E4C3 /* Sunflare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sunflare.swift; path = Sunflare/Sunflare.swift; sourceTree = "<group>"; };
 		F70C7E971FAC57380000E4C3 /* StackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StackViewController.swift; path = Sunflare/StackViewController.swift; sourceTree = "<group>"; };
+		F7AEB72120CD761600BCCC0C /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WindowController.swift; path = Sunflare/WindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +198,7 @@
 				F70C7E941FAC57380000E4C3 /* ReusableView.swift */,
 				F70C7E971FAC57380000E4C3 /* StackViewController.swift */,
 				F70C7E961FAC57380000E4C3 /* Sunflare.swift */,
+				F7AEB72120CD761600BCCC0C /* WindowController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -503,6 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F70C7E9B1FAC57380000E4C3 /* Sunflare.swift in Sources */,
+				F7AEB72220CD761600BCCC0C /* WindowController.swift in Sources */,
 				F70C7E981FAC57380000E4C3 /* CollectionViewCell.swift in Sources */,
 				F70C7E9A1FAC57380000E4C3 /* CollectionViewController.swift in Sources */,
 				F70C7E9C1FAC57380000E4C3 /* StackViewController.swift in Sources */,
@@ -528,6 +535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F70C7EA81FAC586B0000E4C3 /* CollectionViewController.swift in Sources */,
+				F7AEB72420CD761600BCCC0C /* WindowController.swift in Sources */,
 				F70C7EA71FAC586B0000E4C3 /* CollectionViewCell.swift in Sources */,
 				F70C7EAA1FAC586B0000E4C3 /* StackViewController.swift in Sources */,
 				F70C7E9E1FAC57B90000E4C3 /* Sunflare.swift in Sources */,
@@ -540,6 +548,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F70C7EAC1FAC586C0000E4C3 /* CollectionViewController.swift in Sources */,
+				F7AEB72520CD761600BCCC0C /* WindowController.swift in Sources */,
 				F70C7EAB1FAC586C0000E4C3 /* CollectionViewCell.swift in Sources */,
 				F70C7EAE1FAC586C0000E4C3 /* StackViewController.swift in Sources */,
 				F70C7E9F1FAC57BA0000E4C3 /* Sunflare.swift in Sources */,
@@ -552,6 +561,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F70C7EA41FAC586A0000E4C3 /* CollectionViewController.swift in Sources */,
+				F7AEB72320CD761600BCCC0C /* WindowController.swift in Sources */,
 				F70C7EA31FAC586A0000E4C3 /* CollectionViewCell.swift in Sources */,
 				F70C7EA61FAC586A0000E4C3 /* StackViewController.swift in Sources */,
 				F70C7E9D1FAC57B80000E4C3 /* Sunflare.swift in Sources */,
