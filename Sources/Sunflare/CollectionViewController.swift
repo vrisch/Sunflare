@@ -14,6 +14,7 @@ public protocol CollectionViewPresenter: class, ViewPresenter {
     func viewWillAppear(_ collectionViewController: CollectionViewController<Self>) throws
     func viewDidDisappear(_ collectionViewController: CollectionViewController<Self>) throws
     
+    func numberOfSections(_ collectionViewController: CollectionViewController<Self>) -> Int
     func numberOfItemsInSection(_ collectionViewController: CollectionViewController<Self>, section: Int) -> Int
     func cellForItemAt(_ collectionViewController: CollectionViewController<Self>, indexPath: IndexPath) -> UICollectionViewCell
     
@@ -31,6 +32,9 @@ public protocol CollectionViewPresenter: class, ViewPresenter {
 }
 
 public extension CollectionViewPresenter {
+    func numberOfSections(_ collectionViewController: CollectionViewController<Self>) -> Int {
+        return 1
+    }
     func configureLayout(_ collectionViewController: CollectionViewController<Self>, layout: UICollectionViewFlowLayout, traitCollection: UITraitCollection) {
     }
     func viewDidFail(_ collectionViewController: CollectionViewController<Self>, error: Error) {
@@ -105,7 +109,11 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
             presenter.viewDidFail(self, error: error)
         }
     }
-    
+
+    public override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return presenter.numberOfSections(self)
+    }
+
     public override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return presenter.numberOfItemsInSection(self, section: section)
     }
