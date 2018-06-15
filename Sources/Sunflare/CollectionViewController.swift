@@ -17,7 +17,9 @@ public protocol CollectionViewPresenter: class, ViewPresenter {
     func numberOfSections(_ collectionViewController: CollectionViewController<Self>) -> Int
     func numberOfItemsInSection(_ collectionViewController: CollectionViewController<Self>, section: Int) -> Int
     func cellForItemAt(_ collectionViewController: CollectionViewController<Self>, indexPath: IndexPath) -> UICollectionViewCell
-    
+
+    func supplementaryView(_ collectionViewController: CollectionViewController<Self>, kind: String, at indexPath: IndexPath) -> UICollectionReusableView
+
     func configureLayout(_ collectionViewController: CollectionViewController<Self>, layout: UICollectionViewFlowLayout, traitCollection: UITraitCollection)
     
     func viewDidFail(_ collectionViewController: CollectionViewController<Self>, error: Error)
@@ -34,6 +36,9 @@ public protocol CollectionViewPresenter: class, ViewPresenter {
 public extension CollectionViewPresenter {
     func numberOfSections(_ collectionViewController: CollectionViewController<Self>) -> Int {
         return 1
+    }
+    func supplementaryView(_ collectionViewController: CollectionViewController<Self>, kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        return UICollectionReusableView()
     }
     func configureLayout(_ collectionViewController: CollectionViewController<Self>, layout: UICollectionViewFlowLayout, traitCollection: UITraitCollection) {
     }
@@ -121,7 +126,11 @@ public class CollectionViewController<P: CollectionViewPresenter>: UICollectionV
     public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return presenter.cellForItemAt(self, indexPath: indexPath)
     }
-    
+
+    public override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        return presenter.supplementaryView(self, kind: kind, at: indexPath)
+    }
+
     public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         becomeFirstResponder()
         do {
