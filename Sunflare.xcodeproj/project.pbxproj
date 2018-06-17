@@ -33,10 +33,7 @@
 		F70C7EAC1FAC586C0000E4C3 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */; };
 		F70C7EAD1FAC586C0000E4C3 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E941FAC57380000E4C3 /* ReusableView.swift */; };
 		F70C7EAE1FAC586C0000E4C3 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E971FAC57380000E4C3 /* StackViewController.swift */; };
-		F7A8097320D68BE200A18675 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A8097220D68BE200A18675 /* CollectionReusableView.swift */; };
-		F7A8097420D68BE200A18675 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A8097220D68BE200A18675 /* CollectionReusableView.swift */; };
-		F7A8097520D68BE200A18675 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A8097220D68BE200A18675 /* CollectionReusableView.swift */; };
-		F7A8097620D68BE200A18675 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A8097220D68BE200A18675 /* CollectionReusableView.swift */; };
+		F7A8098820D68D0D00A18675 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A8098720D68D0D00A18675 /* CollectionReusableView.swift */; };
 		F7AEB72220CD761600BCCC0C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AEB72120CD761600BCCC0C /* WindowController.swift */; };
 		F7AEB72320CD761600BCCC0C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AEB72120CD761600BCCC0C /* WindowController.swift */; };
 		F7AEB72420CD761600BCCC0C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AEB72120CD761600BCCC0C /* WindowController.swift */; };
@@ -85,7 +82,7 @@
 		F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = Sunflare/CollectionViewController.swift; sourceTree = "<group>"; };
 		F70C7E961FAC57380000E4C3 /* Sunflare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sunflare.swift; path = Sunflare/Sunflare.swift; sourceTree = "<group>"; };
 		F70C7E971FAC57380000E4C3 /* StackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StackViewController.swift; path = Sunflare/StackViewController.swift; sourceTree = "<group>"; };
-		F7A8097220D68BE200A18675 /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
+		F7A8098720D68D0D00A18675 /* CollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionReusableView.swift; path = Sunflare/CollectionReusableView.swift; sourceTree = "<group>"; };
 		F7AEB72120CD761600BCCC0C /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WindowController.swift; path = Sunflare/WindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,7 +180,7 @@
 		8933C7811EB5B7E0000D00A4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				F7A8097220D68BE200A18675 /* CollectionReusableView.swift */,
+				F7A8098720D68D0D00A18675 /* CollectionReusableView.swift */,
 				F70C7E931FAC57380000E4C3 /* CollectionViewCell.swift */,
 				F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */,
 				F70C7E941FAC57380000E4C3 /* ReusableView.swift */,
@@ -499,7 +496,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7A8097320D68BE200A18675 /* CollectionReusableView.swift in Sources */,
+				F7A8098820D68D0D00A18675 /* CollectionReusableView.swift in Sources */,
 				F70C7E9B1FAC57380000E4C3 /* Sunflare.swift in Sources */,
 				F7AEB72220CD761600BCCC0C /* WindowController.swift in Sources */,
 				F70C7E981FAC57380000E4C3 /* CollectionViewCell.swift in Sources */,
@@ -521,7 +518,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7A8097520D68BE200A18675 /* CollectionReusableView.swift in Sources */,
 				F70C7EA81FAC586B0000E4C3 /* CollectionViewController.swift in Sources */,
 				F7AEB72420CD761600BCCC0C /* WindowController.swift in Sources */,
 				F70C7EA71FAC586B0000E4C3 /* CollectionViewCell.swift in Sources */,
@@ -535,7 +531,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7A8097620D68BE200A18675 /* CollectionReusableView.swift in Sources */,
 				F70C7EAC1FAC586C0000E4C3 /* CollectionViewController.swift in Sources */,
 				F7AEB72520CD761600BCCC0C /* WindowController.swift in Sources */,
 				F70C7EAB1FAC586C0000E4C3 /* CollectionViewCell.swift in Sources */,
@@ -549,7 +544,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7A8097420D68BE200A18675 /* CollectionReusableView.swift in Sources */,
 				F70C7EA41FAC586A0000E4C3 /* CollectionViewController.swift in Sources */,
 				F7AEB72320CD761600BCCC0C /* WindowController.swift in Sources */,
 				F70C7EA31FAC586A0000E4C3 /* CollectionViewCell.swift in Sources */,
