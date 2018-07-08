@@ -54,13 +54,22 @@ public class CollectionViewCell<P: CollectionViewCellPresenter>: UICollectionVie
     deinit {
         unload()
     }
+    
+    private var widthConstraint: NSLayoutConstraint? = nil
 }
 
 public extension CollectionViewCell {
+    private enum Tags: Int {
+        case stackViewTag = 90001
+        case backgroundViewTag = 90002
+    }
     
     public var stackView: UIStackView {
-        guard let stackView = contentView.subviews.first as? UIStackView else {
+        if let stackView = contentView.viewWithTag(Tags.stackViewTag.rawValue) {
+            return stackView as! UIStackView
+        } else {
             let stackView = UIStackView(frame: .zero)
+            stackView.tag = Tags.stackViewTag.rawValue
             if #available(iOS 11.0, *) {
                 stackView.spacing = UIStackView.spacingUseSystem
             } else {
@@ -77,22 +86,28 @@ public extension CollectionViewCell {
                 ])
             return stackView
         }
-        return stackView
     }
     
     public func fixed(width: CGFloat) {
-        let view = UIView(frame: .zero)
-        view.backgroundColor = .clear
-        view.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(view)
-        contentView.sendSubview(toBack: view)
-        NSLayoutConstraint.activate([
-            view.topAnchor.constraint(equalTo: contentView.topAnchor),
-            view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            view.widthAnchor.constraint(equalToConstant: width)
-            ])
-    }
-}
+        if let _ = contentView.viewWithTag(Tags.backgroundViewTag.rawValue) {
+            if widthConstraint?.constant != width {
+                widthConstraint?.constant = width
+            }
+        } else {
+            let backgroundView = UIView(frame: .zero)
+            backgroundView.tag = Tags.backgroundViewTag.rawValue
+            backgroundView.backgroundColor = .clear
+            backgroundView.translatesAutoresizingMaskIntoConstraints = false
+            contentView.addSubview(backgroundView)
+            contentView.sendSubview(toBack: backgroundView)
+            widthConstraint = backgroundView.widthAnchor.constraint(equalToConstant: width)
+            NSLayoutConstraint.activate([
+                backgroundView.topAnchor.constraint(equalTo: contentView.topAnchor),
+                backgroundView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+                backgroundView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                backgroundView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                widthConstraint!
+                ])
+        }
+    }}
 #endif
