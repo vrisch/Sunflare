@@ -79,5 +79,20 @@ public extension CollectionViewCell {
         }
         return stackView
     }
+    
+    public func fixed(width: CGFloat) {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(view)
+        contentView.sendSubview(toBack: view)
+        NSLayoutConstraint.activate([
+            view.topAnchor.constraint(equalTo: contentView.topAnchor),
+            view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            view.widthAnchor.constraint(equalToConstant: width)
+            ])
+    }
 }
 #endif
