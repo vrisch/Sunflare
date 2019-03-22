@@ -8,15 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		52D6D9871BEFF229002C0205 /* Sunflare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* Sunflare.framework */; };
-		8933C7851EB5B820000D00A4 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Sunflare.swift */; };
-		8933C7861EB5B820000D00A4 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Sunflare.swift */; };
-		8933C7871EB5B820000D00A4 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Sunflare.swift */; };
-		8933C7881EB5B820000D00A4 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Sunflare.swift */; };
 		8933C78E1EB5B82C000D00A4 /* SunflareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* SunflareTests.swift */; };
 		8933C78F1EB5B82C000D00A4 /* SunflareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* SunflareTests.swift */; };
 		8933C7901EB5B82D000D00A4 /* SunflareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* SunflareTests.swift */; };
 		DD7502881C68FEDE006590AF /* Sunflare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* Sunflare.framework */; };
 		DD7502921C690C7A006590AF /* Sunflare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D9F01BEFFFBE002C0205 /* Sunflare.framework */; };
+		F70C7E981FAC57380000E4C3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E931FAC57380000E4C3 /* CollectionViewCell.swift */; };
+		F70C7E991FAC57380000E4C3 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E941FAC57380000E4C3 /* ReusableView.swift */; };
+		F70C7E9A1FAC57380000E4C3 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */; };
+		F70C7E9B1FAC57380000E4C3 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E961FAC57380000E4C3 /* Sunflare.swift */; };
+		F70C7E9C1FAC57380000E4C3 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E971FAC57380000E4C3 /* StackViewController.swift */; };
+		F70C7E9D1FAC57B80000E4C3 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E961FAC57380000E4C3 /* Sunflare.swift */; };
+		F70C7E9E1FAC57B90000E4C3 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E961FAC57380000E4C3 /* Sunflare.swift */; };
+		F70C7E9F1FAC57BA0000E4C3 /* Sunflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E961FAC57380000E4C3 /* Sunflare.swift */; };
+		F70C7EA31FAC586A0000E4C3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E931FAC57380000E4C3 /* CollectionViewCell.swift */; };
+		F70C7EA41FAC586A0000E4C3 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */; };
+		F70C7EA51FAC586A0000E4C3 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E941FAC57380000E4C3 /* ReusableView.swift */; };
+		F70C7EA61FAC586A0000E4C3 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E971FAC57380000E4C3 /* StackViewController.swift */; };
+		F70C7EA71FAC586B0000E4C3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E931FAC57380000E4C3 /* CollectionViewCell.swift */; };
+		F70C7EA81FAC586B0000E4C3 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */; };
+		F70C7EA91FAC586B0000E4C3 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E941FAC57380000E4C3 /* ReusableView.swift */; };
+		F70C7EAA1FAC586B0000E4C3 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E971FAC57380000E4C3 /* StackViewController.swift */; };
+		F70C7EAB1FAC586C0000E4C3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E931FAC57380000E4C3 /* CollectionViewCell.swift */; };
+		F70C7EAC1FAC586C0000E4C3 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */; };
+		F70C7EAD1FAC586C0000E4C3 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E941FAC57380000E4C3 /* ReusableView.swift */; };
+		F70C7EAE1FAC586C0000E4C3 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C7E971FAC57380000E4C3 /* StackViewController.swift */; };
+		F7A8098820D68D0D00A18675 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A8098720D68D0D00A18675 /* CollectionReusableView.swift */; };
+		F7AEB72220CD761600BCCC0C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AEB72120CD761600BCCC0C /* WindowController.swift */; };
+		F7AEB72320CD761600BCCC0C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AEB72120CD761600BCCC0C /* WindowController.swift */; };
+		F7AEB72420CD761600BCCC0C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AEB72120CD761600BCCC0C /* WindowController.swift */; };
+		F7AEB72520CD761600BCCC0C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AEB72120CD761600BCCC0C /* WindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,12 +70,20 @@
 		52D6D9E21BEFFF6E002C0205 /* Sunflare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sunflare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9F01BEFFFBE002C0205 /* Sunflare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sunflare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6DA0F1BF000BD002C0205 /* Sunflare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sunflare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8933C7841EB5B820000D00A4 /* Sunflare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sunflare.swift; sourceTree = "<group>"; };
 		8933C7891EB5B82A000D00A4 /* SunflareTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunflareTests.swift; sourceTree = "<group>"; };
 		AD2FAA261CD0B6D800659CF4 /* Sunflare.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sunflare.plist; sourceTree = "<group>"; };
 		AD2FAA281CD0B6E100659CF4 /* SunflareTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SunflareTests.plist; sourceTree = "<group>"; };
 		DD75027A1C68FCFC006590AF /* Sunflare-macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sunflare-macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD75028D1C690C7A006590AF /* Sunflare-tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sunflare-tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F70C7E8F1FAC56110000E4C3 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		F70C7E911FAC566D0000E4C3 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		F70C7E931FAC57380000E4C3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = Sunflare/CollectionViewCell.swift; sourceTree = "<group>"; };
+		F70C7E941FAC57380000E4C3 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReusableView.swift; path = Sunflare/ReusableView.swift; sourceTree = "<group>"; };
+		F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = Sunflare/CollectionViewController.swift; sourceTree = "<group>"; };
+		F70C7E961FAC57380000E4C3 /* Sunflare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sunflare.swift; path = Sunflare/Sunflare.swift; sourceTree = "<group>"; };
+		F70C7E971FAC57380000E4C3 /* StackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StackViewController.swift; path = Sunflare/StackViewController.swift; sourceTree = "<group>"; };
+		F7A8098720D68D0D00A18675 /* CollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionReusableView.swift; path = Sunflare/CollectionReusableView.swift; sourceTree = "<group>"; };
+		F7AEB72120CD761600BCCC0C /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WindowController.swift; path = Sunflare/WindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +145,8 @@
 		52D6D9721BEFF229002C0205 = {
 			isa = PBXGroup;
 			children = (
+				F70C7E911FAC566D0000E4C3 /* Cartfile */,
+				F70C7E8F1FAC56110000E4C3 /* Package.swift */,
 				8933C7811EB5B7E0000D00A4 /* Sources */,
 				8933C7831EB5B7EB000D00A4 /* Tests */,
 				52D6D99C1BEFF38C002C0205 /* Configs */,
@@ -149,7 +180,13 @@
 		8933C7811EB5B7E0000D00A4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				8933C7841EB5B820000D00A4 /* Sunflare.swift */,
+				F7A8098720D68D0D00A18675 /* CollectionReusableView.swift */,
+				F70C7E931FAC57380000E4C3 /* CollectionViewCell.swift */,
+				F70C7E951FAC57380000E4C3 /* CollectionViewController.swift */,
+				F70C7E941FAC57380000E4C3 /* ReusableView.swift */,
+				F70C7E971FAC57380000E4C3 /* StackViewController.swift */,
+				F70C7E961FAC57380000E4C3 /* Sunflare.swift */,
+				F7AEB72120CD761600BCCC0C /* WindowController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -346,16 +383,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0810;
-				ORGANIZATIONNAME = "Sunflare";
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Sunflare;
 				TargetAttributes = {
 					52D6D97B1BEFF229002C0205 = {
 						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 1020;
 					};
 					52D6D9851BEFF229002C0205 = {
 						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 1020;
 					};
 					52D6D9E11BEFFF6E002C0205 = {
 						CreatedOnToolsVersion = 7.1;
@@ -384,6 +421,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 52D6D9721BEFF229002C0205;
@@ -459,7 +497,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8933C7851EB5B820000D00A4 /* Sunflare.swift in Sources */,
+				F7A8098820D68D0D00A18675 /* CollectionReusableView.swift in Sources */,
+				F70C7E9B1FAC57380000E4C3 /* Sunflare.swift in Sources */,
+				F7AEB72220CD761600BCCC0C /* WindowController.swift in Sources */,
+				F70C7E981FAC57380000E4C3 /* CollectionViewCell.swift in Sources */,
+				F70C7E9A1FAC57380000E4C3 /* CollectionViewController.swift in Sources */,
+				F70C7E9C1FAC57380000E4C3 /* StackViewController.swift in Sources */,
+				F70C7E991FAC57380000E4C3 /* ReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,7 +519,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8933C7871EB5B820000D00A4 /* Sunflare.swift in Sources */,
+				F70C7EA81FAC586B0000E4C3 /* CollectionViewController.swift in Sources */,
+				F7AEB72420CD761600BCCC0C /* WindowController.swift in Sources */,
+				F70C7EA71FAC586B0000E4C3 /* CollectionViewCell.swift in Sources */,
+				F70C7EAA1FAC586B0000E4C3 /* StackViewController.swift in Sources */,
+				F70C7E9E1FAC57B90000E4C3 /* Sunflare.swift in Sources */,
+				F70C7EA91FAC586B0000E4C3 /* ReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,7 +532,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8933C7881EB5B820000D00A4 /* Sunflare.swift in Sources */,
+				F70C7EAC1FAC586C0000E4C3 /* CollectionViewController.swift in Sources */,
+				F7AEB72520CD761600BCCC0C /* WindowController.swift in Sources */,
+				F70C7EAB1FAC586C0000E4C3 /* CollectionViewCell.swift in Sources */,
+				F70C7EAE1FAC586C0000E4C3 /* StackViewController.swift in Sources */,
+				F70C7E9F1FAC57BA0000E4C3 /* Sunflare.swift in Sources */,
+				F70C7EAD1FAC586C0000E4C3 /* ReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,7 +545,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8933C7861EB5B820000D00A4 /* Sunflare.swift in Sources */,
+				F70C7EA41FAC586A0000E4C3 /* CollectionViewController.swift in Sources */,
+				F7AEB72320CD761600BCCC0C /* WindowController.swift in Sources */,
+				F70C7EA31FAC586A0000E4C3 /* CollectionViewCell.swift in Sources */,
+				F70C7EA61FAC586A0000E4C3 /* StackViewController.swift in Sources */,
+				F70C7E9D1FAC57B80000E4C3 /* Sunflare.swift in Sources */,
+				F70C7EA51FAC586A0000E4C3 /* ReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,18 +595,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -571,12 +639,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -587,18 +656,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -616,10 +694,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -639,14 +718,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Configs/Sunflare.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Sunflare.Sunflare-iOS";
 				PRODUCT_NAME = Sunflare;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -662,13 +740,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Configs/Sunflare.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Sunflare.Sunflare-iOS";
 				PRODUCT_NAME = Sunflare;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -681,7 +758,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Sunflare.Sunflare-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -694,7 +771,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Sunflare.Sunflare-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -714,9 +791,8 @@
 				PRODUCT_NAME = Sunflare;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
 			};
 			name = Debug;
 		};
@@ -737,9 +813,8 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
 			};
 			name = Release;
 		};
@@ -759,9 +834,8 @@
 				PRODUCT_NAME = Sunflare;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
+				TVOS_DEPLOYMENT_TARGET = 10.2;
 			};
 			name = Debug;
 		};
@@ -782,9 +856,8 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
+				TVOS_DEPLOYMENT_TARGET = 10.2;
 			};
 			name = Release;
 		};
@@ -802,12 +875,11 @@
 				INFOPLIST_FILE = Configs/Sunflare.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Sunflare.Sunflare-macOS";
 				PRODUCT_NAME = Sunflare;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -825,71 +897,70 @@
 				INFOPLIST_FILE = Configs/Sunflare.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Sunflare.Sunflare-macOS";
 				PRODUCT_NAME = Sunflare;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		DD7502831C68FCFC006590AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Configs/SunflareTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Sunflare.Sunflare-macOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		DD7502841C68FCFC006590AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Configs/SunflareTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Sunflare.Sunflare-macOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		DD7502961C690C7A006590AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = Configs/SunflareTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Sunflare.Sunflare-tvOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0;
-				TVOS_DEPLOYMENT_TARGET = 9.1;
+				TVOS_DEPLOYMENT_TARGET = 10.2;
 			};
 			name = Debug;
 		};
 		DD7502971C690C7A006590AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = Configs/SunflareTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Sunflare.Sunflare-tvOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-				TVOS_DEPLOYMENT_TARGET = 9.1;
+				TVOS_DEPLOYMENT_TARGET = 10.2;
 			};
 			name = Release;
 		};
