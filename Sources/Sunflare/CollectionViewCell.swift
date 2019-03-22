@@ -64,7 +64,7 @@ public extension CollectionViewCell {
         case backgroundViewTag = 90002
     }
     
-    public var stackView: UIStackView {
+    var stackView: UIStackView {
         if let stackView = contentView.viewWithTag(Tags.stackViewTag.rawValue) {
             return stackView as! UIStackView
         } else {
@@ -88,7 +88,7 @@ public extension CollectionViewCell {
         }
     }
     
-    public func fixed(width: CGFloat) {
+    func fixed(width: CGFloat) {
         if let _ = contentView.viewWithTag(Tags.backgroundViewTag.rawValue) {
             if widthConstraint?.constant != width {
                 widthConstraint?.constant = width
@@ -99,7 +99,7 @@ public extension CollectionViewCell {
             backgroundView.backgroundColor = .clear
             backgroundView.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(backgroundView)
-            contentView.sendSubview(toBack: backgroundView)
+            contentView.sendSubviewToBack(backgroundView)
             widthConstraint = backgroundView.widthAnchor.constraint(equalToConstant: width)
             NSLayoutConstraint.activate([
                 backgroundView.topAnchor.constraint(equalTo: contentView.topAnchor),

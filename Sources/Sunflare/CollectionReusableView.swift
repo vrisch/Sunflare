@@ -58,7 +58,7 @@ public class CollectionReusableView<P: CollectionReusableViewPresenter>: UIColle
 
 public extension CollectionReusableView {
     
-    public var stackView: UIStackView {
+    var stackView: UIStackView {
         guard let stackView = subviews.first as? UIStackView else {
             let stackView = UIStackView(frame: .zero)
             if #available(iOS 11.0, *) {
